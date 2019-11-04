@@ -1,8 +1,8 @@
 {
 "users": [
   {
-    id: 1,
-    "name":"eman"
+    "id": 1,
+    "name":"eman",
   },
   {
     id: 2,
@@ -12,8 +12,8 @@
 "connections": [
   {
     "id": 1,
-    "user1": 1
-    "user2": 2
+    "user1": 1,
+    "user2": 2,
   }
 ]
 }
