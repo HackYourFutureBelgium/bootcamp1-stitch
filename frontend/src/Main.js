@@ -21,7 +21,7 @@ class Main extends Component {
         </section>
         <section className="signupSection">
           <h1>Interested?Join us...</h1>
-          <button>Sign up now</button>
+          <button>Sign up</button>
         </section>
         <section className="addLinkSection">
         <h2>Do you have a referral link already?</h2>
