@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SignUpSection from './SignUpSection';
+import AddLinkSection from './AddLinkSection'
 
 class Main extends Component {
   constructor(props) {
