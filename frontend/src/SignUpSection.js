@@ -5,6 +5,7 @@ const SignUpSection = () => {
     <section className="signupSection">
       <h1>Interested?Join us...</h1>
       <button>Sign up now</button>
+      <span>already a member log in here?</span>
     </section>
   );
 
