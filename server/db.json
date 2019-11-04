@@ -1,19 +1,36 @@
 {
-"users": [
-  {
-    id: 1,
-    "name":"eman"
-  },
-  {
-    id: 2,
-    "name":"eman"
-  }
-],
-"connections": [
-  {
-    "id": 1,
-    "user1": 1
-    "user2": 2
-  }
-]
+  "classes": [
+    {
+      "name": "Vision",
+      "id": 1
+    },
+    {
+      "name": "Bridge",
+      "id": 2
+    },
+    {
+      "name": "Bootcamp",
+      "id": 3
+    },
+    {
+      "name": "Hi",
+      "id": 4
+    },
+    {
+      "name": "Bootcamp",
+      "id": 5
+    },
+    {
+      "name": "Hello",
+      "id": 6
+    },
+    {
+      "name": "SLow class",
+      "id": 7
+    },
+    {
+      "name": "ta",
+      "id": 8
+    }
+  ]
 }
