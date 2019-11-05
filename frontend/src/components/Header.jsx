@@ -31,7 +31,19 @@ export default function Header() {
             <IconButton edge="start" className={classes.menuButton} color="black" aria-label="menu">
               <MenuIcon />
             </IconButton>
-            <Typography variant="h1" className={classes.title} style={{ color: 'black' }}>
+            <Typography
+              variant="h1"
+              className={classes.title}
+              style={{
+                color: 'black',
+
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontsize: '100px',
+                lineHeight: '108px',
+                fontFamily: 'Srisakdi, cursive'
+              }}
+            >
               Stitch
             </Typography>
             <Button style={{ color: 'black' }}>Login</Button>
