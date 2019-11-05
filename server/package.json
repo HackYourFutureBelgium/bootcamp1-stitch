@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "json-server": "^0.15.1"
+    "express": "^4.17.1",
+    "json-server": "^0.15.1",
+    "nodemon": "^1.19.4"
   },
   "scripts": {
     "start": "json-server --watch db.json --port 3001"
