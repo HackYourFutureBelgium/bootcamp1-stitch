@@ -4,8 +4,7 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <button variant="secondary">Close</button>
-        <button variant="primary">Save changes</button>
+        <h1>Profile page </h1>
       </div>
     );
   }
