@@ -62,3 +62,13 @@ a:hover {
 .app {
   height: 100vh;
 }
+
+.app-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(236, 190, 234);
+  color: white;
+  text-align: center;
+}

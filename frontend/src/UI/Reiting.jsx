@@ -1,9 +1,6 @@
 import React from 'react';
-import Header from './Header';
-
 import { withStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
-
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -21,11 +18,9 @@ function getLabelText(value) {
   return `${value} Heart${value !== 1 ? 's' : ''}`;
 }
 
-export default function CustomizedRatings() {
+function CustomizedRatings() {
   return (
     <div>
-      <Header />
-
       <Box component="fieldset" mb={3} borderColor="transparent">
         <Typography component="legend">Custom icon and color</Typography>
         <StyledRating
@@ -39,3 +34,5 @@ export default function CustomizedRatings() {
     </div>
   );
 }
+
+export default CustomizedRatings;
