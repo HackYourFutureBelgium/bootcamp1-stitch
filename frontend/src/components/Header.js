@@ -18,7 +18,7 @@ class Header extends Component {
       <header className="app-header">
         <h1 className="app-header__title">Stitch</h1>
         <nav>
-          <Button type="primary" icon="login">Log in</Button>
+          <Button className="app-header__button-login" icon="login">Log in</Button>
         </nav>
       </header>
     );
