@@ -32,14 +32,12 @@ export default function Header() {
               <MenuIcon />
             </IconButton>
             <Typography
-              variant="h1"
+              variant="h2"
               className={classes.title}
               style={{
-                color: 'black',
-
+                color: 'red',
                 fontStyle: 'normal',
                 fontWeight: 'normal',
-                fontsize: '100px',
                 lineHeight: '108px',
                 fontFamily: 'Srisakdi, cursive'
               }}
