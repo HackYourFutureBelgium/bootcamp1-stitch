@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "json-server": "^0.15.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "json-server": "^0.15.1",
+    "mongoose": "^5.7.8"
   },
   "scripts": {
     "start": "json-server --watch db.json --port 3001"
