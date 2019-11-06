@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import { Button } from 'antd';
 
 
-class NotificationItemStitch extends Component {
+class StitchRequestItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,4 +21,4 @@ class NotificationItemStitch extends Component {
     );
 };
 };
-export default NotificationItemStitch;
+export default StitchRequestItem;
