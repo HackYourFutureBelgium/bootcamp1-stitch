@@ -22,9 +22,9 @@ class NormalLoginForm extends Component {
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <Form.Item>
-          <Input
+          <Input type="email"
             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            placeholder="Username"
+            placeholder="Email"
             />
         </Form.Item>
         <Form.Item>
