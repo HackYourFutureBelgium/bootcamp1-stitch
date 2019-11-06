@@ -1,6 +1,5 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-
 import { PageHeader } from 'antd';
 
 export default function Header() {
@@ -8,11 +7,20 @@ export default function Header() {
     <React.Fragment>
       <PageHeader
         style={{
-          border: '1px solid rgb(235, 237, 240)'
+          border: '1px solid rgb(235, 237, 240)',
+          background: '#9ef',
+          width: '100vw',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignitems: 'center',
+          padding: '0 5rem',
+          boxShadow: '0 0 3px 1px rgba(81, 81, 81, 0.2)',
+          top: '0px',
+          left: '0',
+          zIndex: '10',
+          height: '50px'
         }}
-        onBack={() => null}
-        title="Title"
-        subTitle="This is a subtitle"
+        title="STITCH"
       />
     </React.Fragment>
   );

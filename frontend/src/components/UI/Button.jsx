@@ -7,7 +7,18 @@ export default class button extends Component {
   render() {
     return (
       <div>
-        <Button type="primary">Primary</Button>
+        <Button
+          style={{
+            color: '#000',
+            borderRadius: '3.2rem 0',
+            cursor: 'pointer',
+            transition: 'all 300ms',
+            background: 'pink',
+            fontSize: '20px'
+          }}
+        >
+          Primary
+        </Button>
         <Button>Default</Button>
         <Button type="dashed">Dashed</Button>
         <Button type="danger">Danger</Button>
