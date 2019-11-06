@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import CardProf from './UI/CardProf';
 
 class PersonDetail extends React.Component {
   render() {
@@ -8,7 +9,7 @@ class PersonDetail extends React.Component {
       <div>
         <Header />
         <h1>Profile Details page </h1>
-
+        <CardProf />
         <Footer />
       </div>
     );

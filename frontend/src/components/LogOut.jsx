@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
+
 import Footer from './Footer';
 
 export default class LogOut extends Component {
@@ -8,6 +9,7 @@ export default class LogOut extends Component {
       <div>
         <Header />
         <h1>Log out page</h1>
+
         <Footer />
       </div>
     );
