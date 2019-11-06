@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from '../components/LogIn';
 import LogOut from '../components/LogOut';
 import Profile from '../components/Profile';
-
+import NotFound from '../pages/NotFound';
 import View from '../components/View';
 import PersonDetail from '../components/PersonDetail';
 import SignUp from '../components/SignUp';
@@ -30,6 +30,7 @@ export default class MyRoutes extends React.Component {
             <Route exact path="/profile/:id" component={View} />
             <Route exact path="/persondetail" component={PersonDetail} />
             <Route exact path="/signup" component={SignUp} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </Router>
       </div>

@@ -11,7 +11,7 @@ export default function Header() {
           background: '#9ef',
           width: '100vw',
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'end',
           alignitems: 'center',
           padding: '0 5rem',
           boxShadow: '0 0 3px 1px rgba(81, 81, 81, 0.2)',

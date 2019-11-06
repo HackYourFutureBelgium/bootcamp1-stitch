@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Footer from './Footer';
 
-class View extends Component {
+export default class View extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <h2>helllo view page</h2>
-        <Footer />
+        <h1>hello View page</h1>
       </div>
     );
   }
 }
-
-export default View;

@@ -8,11 +8,13 @@ const buttonStyle = {
   borderRadius: '3.2rem 0',
   cursor: 'pointer',
   transition: 'all 500ms',
-  background: 'pink',
-  fontSize: '20px',
-  border: 'none'
-};
+  background: 'orange',
 
+  fontSize: '20px',
+  border: 'none',
+  position: 'absolute',
+  left: '350px'
+};
 const ButtonS = () => (
   <div>
     <Button style={buttonStyle}>Submit</Button>

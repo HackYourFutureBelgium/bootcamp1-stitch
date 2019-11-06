@@ -13,7 +13,7 @@ body {
 body {
   padding: 0;
   margin: 0;
-  background-color: #fff;
+  background-color: 'red';
   color: #333;
   font-size: 1.5rem;
   font-family: 'Lato', Arial, Helvetica, sans-serif;
@@ -68,7 +68,7 @@ a:hover {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(236, 190, 234);
+  background-color: rgb(185, 218, 200);
   color: white;
   text-align: center;
 }
