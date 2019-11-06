@@ -3,6 +3,7 @@ import Introduction from './Introduction';
 import SignUpSection from './SignUpSection';
 import ProfileFinder from './ProfileFinder';
 
+
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +22,7 @@ class Main extends Component {
         <Introduction />
         <SignUpSection />
         <ProfileFinder />
+
       </main>
     );
   }
