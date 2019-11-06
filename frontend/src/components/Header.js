@@ -43,7 +43,10 @@ class Header extends Component {
     const { visible, confirmLoading, ModalText } = this.state;
     return (
       <header className="app-header">
-        <h1 className="app-header__title">Stitch</h1>
+        <div className="app-header__box">
+          <img src="stitchlogo.png" alt="Stitch Logo" title="Stitch" height="85" width="85" />
+          <h1 className="app-header__title">Stitch</h1>
+        </div>
         <nav>
           <Button className="app-header__button-login" icon="login" onClick={this.showModal}>Log in</Button>
           <Modal
