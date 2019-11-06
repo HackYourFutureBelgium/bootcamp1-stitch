@@ -1,25 +1,18 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import React, { Component } from 'react';
+import 'antd/dist/antd.css';
 
-const useStyles = makeStyles(theme => ({
-  fab: {
-    margin: theme.spacing(1)
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1)
+import { Button } from 'antd';
+
+export default class button extends Component {
+  render() {
+    return (
+      <div>
+        <Button type="primary">Primary</Button>
+        <Button>Default</Button>
+        <Button type="dashed">Dashed</Button>
+        <Button type="danger">Danger</Button>
+        <Button type="link">Link</Button>
+      </div>
+    );
   }
-}));
-
-export default function FloatingActionButtons() {
-  const classes = useStyles();
-
-  return (
-    <div>
-      <Fab color="primary" aria-label="add" className={classes.fab}>
-        <AddIcon />
-      </Fab>
-    </div>
-  );
 }
