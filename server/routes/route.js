@@ -1,42 +1,67 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const { DB_URI } = process.env;
+mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("connection established");
+  }
+  )
+  .catch((err) => {
+    console.error(err);
+  });
+
+const userProfile = new mongoose.Schema({
+  name: { type: String, default: "NULL" },
+  email: { type: String, default: "NULL" }
+})
+
+const profile = mongoose.model("profile", userProfile);
 
 
-const user = [];
-
-router.use(bodyParser.json());
-
-
-router.get('/', function (req, res) {
-  res.send('Home Page');
+router.get('/', (req, res) => {
+  res.send('HOME PAGE');
 });
 
-router.get('/signup', function (req, res) {
-  res.send('signup page');
+router.get('/search', (req, res) => {
+
+  profile.find().then(xyz => res.send(xyz));
+
+
 });
 
-router.post('/signup', function (req, res) {
-  user.push(res.body);
-  res.send(res.body);
-  console.log(req.body);
+router.post('/signup', (req, res) => {
+  //res.send('signup page');
+  profile.create(req.body)
+    .then(profilecreated => res.send(profilecreated))
+    .catch((err) => {
+      console.error(err);
+    });
 });
 
+router.get('/connection', (req, res) => {
+  res.send('connection_info');
 
-// router.get('/login', function (req, res) {
-//   res.send('login page');
-// });
-// router.get('/profilewithskill', function (req, res) {
-//   res.send('profile with skill page');
-// });
-// router.get('/connections', function (req, res) {
-//   res.send('connection page');
-// });
-// router.get('/signin', function (req, res) {
-//   res.send('sign in page');
-// });
-// router.get('/profilewithskilladdtimeline', function (req, res) {
-//   res.send('profile with skill add time line page');
-// });
+});
+router.put('/post', (req, res) => {
+  res.send('added to you timeline');
+
+});
+router.delete('/deletepost', (req, res) => {
+  res.send('deleted post');
+
+});
+
+/*router.delete('/notification', (req, res) => {
+    res.send('deleted post');
+
+});*/
+
+router.put('/update', (req, res) => {
+  res.send('added to you timeline');
+
+});
+
 
 module.exports = router;
