@@ -14,7 +14,6 @@ const ProfileFinder = () => {
       icon="search"
       enterButton="Find"
       size="large"
-
       onSearch={value => console.log(value)}
     />
     </section>
