@@ -25,7 +25,16 @@ class ConnectionList extends Component {
     };
   }
 
+  componentDidMount() {
+    /* TODO
+      request connections from API and set them to state
+      instead of dummy data */
+  }
+
   removeConnection = id => {
+    /* TODO
+      disconnect on the server-side before we
+      remove the connection from state */
     const connections = [...this.state.connections];
     const index = connections.findIndex(user => {
       return user.id === id;
