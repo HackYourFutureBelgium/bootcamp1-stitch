@@ -24,10 +24,20 @@ class ConnectionList extends Component {
       ]
     };
   }
+
+  removeConnection = id => {
+    const connections = [...this.state.connections];
+    const index = connections.findIndex(user => {
+      return user.id === id;
+    });
+    connections.splice(index, 1);
+    this.setState({ connections: connections });
+  };
+
   render() {
     const { connections } = this.state;
     const connectionItems = connections.map(user => {
-      return <ConnectionItem key={user.id} connection={user} />;
+      return <ConnectionItem key={user.id} disconnect={this.removeConnection} connection={user} />;
     });
 
     return <ul>{connectionItems}</ul>;
