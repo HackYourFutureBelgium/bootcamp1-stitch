@@ -70,9 +70,21 @@ a:hover {
 }
 .app {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .content {
   align-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  flex: 1 0 auto;
+}
+.introduction {
+  width: 70%;
+}
+.signupSection {
   display: flex;
   flex-direction: column;
 }
@@ -82,4 +94,21 @@ display: block;
 .app-header__box {
   display: flex;
   align-items:center;
+}
+.app-profileFinder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer {
+  flex-shrink: 0;
+  box-shadow: rgba(81, 81, 81, 0.2) 0px 1px 6px 3px;
+  justify-content: center;
+}
+.app-footer__title {
+  font-family: 'Istok Web', Arial, Helvetica, sans-serif;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 2rem;
+  color: #1890ff;
 }
