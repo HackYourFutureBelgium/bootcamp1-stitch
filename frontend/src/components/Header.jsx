@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { PageHeader } from 'antd';
 
-export default function Header() {
+export default function Header(props) {
   return (
     <React.Fragment>
       <PageHeader
@@ -19,7 +19,7 @@ export default function Header() {
           height: '50px'
         }}
         title="STITCH"
-      />
+      ></PageHeader>
     </React.Fragment>
   );
 }

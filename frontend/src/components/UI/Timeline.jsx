@@ -1,6 +1,5 @@
 import React from 'react';
 import '.././../styles/styleTimeline.css';
-import Header from '../Header';
 
 const timelineData = [
   {
@@ -96,7 +95,6 @@ const Timeline = () =>
 export default function Timeline1() {
   return (
     <React.Fragment>
-      <Header />
       <h1>React Timeline</h1>
       <Timeline />
     </React.Fragment>

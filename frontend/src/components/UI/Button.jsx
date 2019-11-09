@@ -1,23 +1,43 @@
-import React from 'react';
-import 'antd/dist/antd.css';
+import styled from 'styled-components';
 
-import { Button } from 'antd';
+const colors = {
+  black: '#333',
+  offWhite: '#F9F9F9',
 
-const buttonStyle = {
-  color: '#000',
-  borderRadius: '3.2rem 0',
-  cursor: 'pointer',
-  transition: 'all 500ms',
-  background: 'orange',
-  fontSize: '20px',
-  border: 'none',
-  position: 'absolute',
-  left: '350px'
+  // main copy
+  darkPurple: '#2F1D68',
+
+  // titles, sub-titles, icons, tags
+  purple: '#5524CB',
+
+  // highlights
+  yellow: '#FAE3A7',
+
+  // links
+  orange: '#E95F48',
+
+  // graphics
+  blue: '#6ef',
+  pink: 'palevioletred'
 };
-const ButtonS = () => (
-  <div>
-    <Button style={buttonStyle}>Submit</Button>
-  </div>
-);
 
-export default ButtonS;
+// "medium" is default prop so must come last in conditionals
+const Button = styled.button`
+  /* Adapt the colors based on primary prop */
+  background: ${props => (props.primary ? 'palevioletred' : 'white')};
+  color: ${props => (props.primary ? 'white' : 'palevioletred')};
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  align-content: center;
+
+  border: 2px solid palevioletred;
+  border-radius: 32% 0;
+  &:hover {
+    background: pink;
+    color: ${props => (props.primary ? 'purple' : colors.pink)};
+    border-radius: 50% 0;
+  }
+`;
+
+export default Button;
