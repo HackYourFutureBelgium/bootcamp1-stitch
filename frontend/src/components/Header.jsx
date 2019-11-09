@@ -11,13 +11,11 @@ export default function Header() {
           background: '#9ef',
           width: '100vw',
           display: 'flex',
-          justifyContent: 'end',
           alignitems: 'center',
           padding: '0 5rem',
           boxShadow: '0 0 3px 1px rgba(81, 81, 81, 0.2)',
           top: '0px',
           left: '0',
-          zIndex: '10',
           height: '50px'
         }}
         title="STITCH"

@@ -9,7 +9,6 @@ const buttonStyle = {
   cursor: 'pointer',
   transition: 'all 500ms',
   background: 'orange',
-
   fontSize: '20px',
   border: 'none',
   position: 'absolute',

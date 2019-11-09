@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MyRoutes from './routes/myroutes';
 import './styles/style.css';
+import './index.css';
 
 class App extends Component {
   state = {};

@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import { Typography } from 'antd';
-import Footer from './Footer';
 
-const { Title } = Typography;
+import Footer from './Footer';
+import Timeline1 from '../components/UI/Timeline';
 
 export default class LogOut extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <Title>h1. Ant Design</Title>
+        <Timeline1 />
 
         <Footer />
       </div>
