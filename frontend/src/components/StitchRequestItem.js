@@ -12,7 +12,7 @@ import { Button } from 'antd';
        <h2>Stitch request from {name}</h2>
        <h3>{role}</h3>
        <h3>{stitch}</h3>
-       <Button>accept</Button>
+       <Button >accept</Button>
        <Button>decline</Button>
       </ul>
     );

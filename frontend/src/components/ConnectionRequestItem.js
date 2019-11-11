@@ -3,16 +3,16 @@ import 'antd/dist/antd.css';
 import { Button } from 'antd';
 
 
-function ConnectionRequestItem({ notification }) { 
-  const { name, role } = notification;
+function ConnectionRequestItem({notification, decline}) { 
+  const { name, role, id } = notification;
     return (
-      <li>
+      <div>
        <img src="./images/simplephoto.jpeg" width="50px" height="40px" alt="photoofconnect" />
        <h2>You have a connection request from {name}</h2>
        <h3>{role}</h3>
        <Button>accept</Button>
-       <Button>decline</Button>
-      </li>
+       <Button onClick={() => decline(id)}>decline</Button>
+      </div>
     );
 };
 

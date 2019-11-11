@@ -3,8 +3,8 @@ import ConnectionRequestItem from './ConnectionRequestItem';
 import StitchRequestItem from './StitchRequestItem'
 
 class NotificationList extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       notifications: [
         {
@@ -33,18 +33,39 @@ class NotificationList extends Component {
       ]
       
     };
+    this.declineNotification = this.declineNotification.bind(this);
   }
 
   componentDidMount(){
 
   }
+  componentDidUpdate() {
+
+  }
+
+  declineNotification(id) {
+    this.setState(prevState => {
+      var notifications = prevState.notifications.findIndex(user => {
+        if(user.id ===id) {
+         return user = prevState.notifications.splice(notifications,1)
+        }
+        return user;
+      })
+
+      return {
+      notifications : notifications
+      };
+    })
+  }
+
+
   render() {
-    const { notifications } = this.state;
-    const notificationsItems = notifications.map(user => {
-      return<ConnectionRequestItem key={user.id} notification= {user} />;
+    
+    const notificationsItems = this.state.notifications.map(user => {
+      return<ConnectionRequestItem key={user.id} decline={this.declineNotification} notification= {user} />;
     });
-    const {stitchNotifications} = this.state;
-    const stitchNotificationItems = stitchNotifications.map(user => {
+  
+    const stitchNotificationItems = this.state.stitchNotifications.map(user => {
       return<StitchRequestItem key ={user.id} stitchNotification={user} />
     })
     return (
