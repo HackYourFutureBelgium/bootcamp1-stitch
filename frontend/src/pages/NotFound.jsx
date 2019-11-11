@@ -1,12 +1,9 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { Result, Button } from 'antd';
 
 const NotFound = () => (
   <div>
-    <Header />
     <Result
       status="404"
       title="404"
@@ -19,7 +16,6 @@ const NotFound = () => (
         </Button>
       }
     />
-    <Footer />
   </div>
 );
 

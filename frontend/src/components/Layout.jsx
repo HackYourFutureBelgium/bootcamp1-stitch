@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export default class View extends Component {
+export default class Layout extends Component {
   render() {
     return (
       <div>
-        <h1>hello View page</h1>
+        <h1>global layout page</h1>
       </div>
     );
   }

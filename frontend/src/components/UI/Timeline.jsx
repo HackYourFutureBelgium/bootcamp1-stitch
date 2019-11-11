@@ -1,102 +1,84 @@
-import React from 'react';
-import '.././../styles/styleTimeline.css';
+import React, { Component } from 'react';
+import { Timeline, Icon } from 'antd';
+import CardProf from './CardProf';
+import '../../styles/style.css';
+import '../../styles/styleProfile.css';
+import Button from './Button';
 
-const timelineData = [
-  {
-    text: 'Started working on the app-ideas repository',
-    date: 'February 25 2019',
-    category: {
-      tag: 'app-ideas',
-      color: '#FFDB14'
-    },
-    link: {
-      url: 'https://hackyourfuture.be/',
-      text: 'Check it out on GitHub'
-    }
-  },
-  {
-    text: 'Started the Weekly Coding Challenge program',
-    date: 'March 04 2019',
-    category: {
-      tag: 'blog',
-      color: '#e17b77'
-    },
-    link: {
-      url: 'https://hackyourfuture.be/',
-      text: 'Check it out here'
-    }
-  },
-  {
-    text: 'Got 1.000 followers on Twitter',
-    date: 'March 07 2019',
-    category: {
-      tag: 'twitter',
-      color: '#1DA1F2'
-    },
-    link: {
-      url: 'https://hackyourfuture.be/',
-      text: 'See profile'
-    }
-  },
-  {
-    text: 'I published my first article in the FreeCodeCamp Medium Publication',
-    date: 'March 18 2019',
-    category: {
-      tag: 'medium',
-      color: '#6ef'
-    },
-    link: {
-      url: 'https://hackyourfuture.be/',
-      text: 'Check it out here'
-    }
-  },
-  {
-    text: 'Over 12.000 views in a single day on my Medium posts',
-    date: 'April 05 2019',
-    category: {
-      tag: 'medium',
-      color: 'orange'
-    },
-    link: {
-      url: 'https://hackyourfuture.be/',
-      text: 'See profile'
-    }
+export default class Timeline1 extends Component {
+  render() {
+    return (
+      <div>
+        <Timeline mode="alternate">
+          <Timeline.Item color="purple">
+            <p>lorem15 Create a services site 2015-09-01</p>
+            {<CardProf />}
+            <img
+              src="https://picsum.photos/id/67/200/200"
+              alt="Smiley face"
+              width="90"
+              height="90"
+            ></img>
+            <p>
+              <a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+            </p>
+          </Timeline.Item>
+          <Timeline.Item color="red" dot={<Icon type="radar-chart" />}>
+            <p>Solve initial network problems 2015-09-01</p>
+          </Timeline.Item>
+          <Timeline.Item dot={<Icon type="radar-chart" />}>
+            <p>
+              {' '}
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+              laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+              architecto beatae vitae dicta sunt explicabo.
+            </p>
+          </Timeline.Item>
+          <Timeline.Item dot={<Icon type="codepen" style={{ fontSize: '20px' }} />}>
+            Network problems being solved 2015-09-01
+          </Timeline.Item>
+          <Timeline.Item color="black" dot={<Icon type="github" style={{ fontSize: '20px' }} />}>
+            Network problems being solved 2015-09-01
+          </Timeline.Item>
+          <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+          <Timeline.Item
+            dot={<Icon type="github" style={{ fontSize: '30px' }} />}
+            placement="rightTop"
+          >
+            Technical testing 2015-09-01
+            <CardProf />
+            5555555
+          </Timeline.Item>
+          <Timeline.Item color="yellow">
+            Create a services site 2015-09-01
+            <CardProf />
+          </Timeline.Item>
+          <Timeline.Item color="green">
+            Solve initial network problems 2015-09-01
+            <CardProf placement="rightTop" />
+          </Timeline.Item>
+          <Timeline.Item dot={<Icon type="facebook" theme="filled" style={{ fontSize: '30px' }} />}>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+            architecto beatae vitae dicta sunt explicabo.
+            {<CardProf />}
+            <img
+              src="https://picsum.photos/id/15/200/200"
+              alt="Smiley face"
+              width="90"
+              height="90"
+            ></img>
+          </Timeline.Item>
+          <hr></hr>
+          <hr></hr>
+          <Button style={{ marginLeft: 500, whiteSpace: 'nowrap' }}>
+            <a href="http://localhost:3000/profile">Go Back</a>
+            <Icon type="radar-chart" style={{ fontSize: '29px' }} />
+          </Button>
+
+          <hr></hr>
+        </Timeline>
+      </div>
+    );
   }
-];
-
-const TimelineItem = ({ data }) => (
-  <div className="timeline-item">
-    <div className="timeline-item-content">
-      <span className="tag" style={{ background: data.category.color }}>
-        {data.category.tag}
-      </span>
-      <time>{data.date}</time>
-      <p>{data.img}</p>
-      <p>{data.text}</p>
-      {data.link && (
-        <a href={data.link.url} target="_blank" rel="noopener noreferrer">
-          {data.link.text}
-        </a>
-      )}
-      <span className="circle" />
-    </div>
-  </div>
-);
-
-const Timeline = () =>
-  timelineData.length > 0 && (
-    <div className="timeline-container">
-      {timelineData.map((data, idx) => (
-        <TimelineItem data={data} key={idx} />
-      ))}
-    </div>
-  );
-
-export default function Timeline1() {
-  return (
-    <React.Fragment>
-      <h1>React Timeline</h1>
-      <Timeline />
-    </React.Fragment>
-  );
 }

@@ -1,6 +1,8 @@
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 import React from 'react';
+import { Timeline } from 'antd';
+import CardProf from './CardProf';
 
 const CommentList = ({ comments }) => (
   <List
@@ -16,6 +18,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
     <Form.Item>
       <Input rows={4} onChange={onChange} value={value} placeholder="add link..." />
     </Form.Item>
+
     <Form.Item>
       <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
         Add Link
@@ -24,7 +27,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
   </div>
 );
 
-class Comments extends React.Component {
+class AddCard extends React.Component {
   state = {
     comments: [],
     submitting: false,
@@ -46,9 +49,27 @@ class Comments extends React.Component {
         value: '',
         comments: [
           {
-            author: 'Han Solo',
+            author: 'Tamar',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-            content: <h3>{this.state.value}</h3>,
+            content: (
+              <div>
+                <Timeline.Item color="purple" style={{ width: '500px' }}>
+                  <p>{moment(this.state.creation).format()}</p>
+                  <p>{this.state.value}</p>
+                  {<CardProf />}
+                  <img
+                    src="https://picsum.photos/id/7/200/200"
+                    alt="Smiley face"
+                    width="90"
+                    height="90"
+                  ></img>
+                  <p>
+                    <a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+                  </p>
+                </Timeline.Item>
+              </div>
+            ),
+
             datetime: moment().fromNow()
           },
           ...this.state.comments
@@ -68,8 +89,6 @@ class Comments extends React.Component {
 
     return (
       <div>
-        {comments.length > 0 && <CommentList comments={comments} />}
-
         <Comment
           avatar={
             <Avatar
@@ -87,8 +106,9 @@ class Comments extends React.Component {
           }
           style={{ width: 500, height: 300 }}
         />
+        {comments.length > 0 && <CommentList comments={comments} />}
       </div>
     );
   }
 }
-export default Comments;
+export default AddCard;

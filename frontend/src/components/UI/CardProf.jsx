@@ -29,6 +29,7 @@ export default class CardProf extends Component {
             description="This is the description"
           />
           <p>Lorem ipsum dolor sit amet.</p>
+          <br />
         </Card>
       </div>
     );

@@ -1,0 +1,173 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+#social {
+  margin: 20px 10px;
+  text-align: center;
+}
+
+.smGlobalBtn {
+  /* global button class */
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ddd;
+  /* add border to the buttons */
+  box-shadow: 0 3px 3px #999;
+  padding: 0px;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  font-size: 25px;
+  font-weight: normal;
+  line-height: 2em;
+  border-radius: 27px;
+  -moz-border-radius: 27px;
+  -webkit-border-radius: 27px;
+}
+
+/* facebook button class*/
+
+.facebookBtn {
+  background: #4060a5;
+}
+
+.facebookBtn:before {
+  /* use :before to add the relevant icons */
+  font-family: 'FontAwesome';
+  content: '\f09a';
+  /* add facebook icon */
+}
+
+.facebookBtn:hover {
+  color: #4060a5;
+  background: #fff;
+  border-color: #4060a5;
+  /* change the border color on mouse hover */
+}
+
+/* twitter button class*/
+
+.twitterBtn {
+  background: #00abe3;
+}
+
+.twitterBtn:before {
+  font-family: 'FontAwesome';
+  content: '\f099';
+  /* add twitter icon */
+}
+
+.twitterBtn:hover {
+  color: #00abe3;
+  background: #fff;
+  border-color: #00abe3;
+}
+
+/* google plus button class*/
+
+.googleplusBtn {
+  background: #e64522;
+}
+
+.googleplusBtn:before {
+  font-family: 'FontAwesome';
+  content: '\f0d5';
+  /* add googleplus icon */
+}
+
+.googleplusBtn:hover {
+  color: #e64522;
+  background: #fff;
+  border-color: #e64522;
+}
+
+/* linkedin button class*/
+
+.linkedinBtn {
+  background: #0094bc;
+}
+
+.linkedinBtn:before {
+  font-family: 'FontAwesome';
+  content: '\f0e1';
+  /* add linkedin icon */
+}
+
+.linkedinBtn:hover {
+  color: #0094bc;
+  background: #fff;
+  border-color: #0094bc;
+}
+
+/* pinterest button class*/
+
+.pinterestBtn {
+  background: #cb2027;
+}
+
+.pinterestBtn:before {
+  font-family: 'FontAwesome';
+  content: '\f0d2';
+  /* add pinterest icon */
+}
+
+.pinterestBtn:hover {
+  color: #cb2027;
+  background: #fff;
+  border-color: #cb2027;
+}
+
+/* telephon button class*/
+
+.telBtn {
+  background: #d1e707;
+}
+
+.telBtn:before {
+  font-family: 'FontAwesome';
+  content: '\f2a0';
+  /* add pinterest icon */
+}
+
+.telBtn:hover {
+  color: #d1e707;
+  background: #fff;
+  border-color: #d1e707;
+}
+
+/* email button class*/
+
+.emailBtn {
+  background: #0fe232;
+}
+
+.emailBtn:before {
+  font-family: 'FontAwesome';
+  content: '\f1fa';
+  /* add pinterest icon */
+}
+
+.emailBtn:hover {
+  color: #0fe232;
+  background: #fff;
+  border-color: #0fe232;
+}
+
+/* adress button class*/
+
+.adressBtn {
+  background: #cb2027;
+}
+
+.adressBtn:before {
+  font-family: 'FontAwesome';
+  content: '\f1f7';
+  /* add pinterest icon */
+}
+
+.adressBtn:hover {
+  color: #cb2027;
+  background: #fff;
+  border-color: #cb2027;
+}

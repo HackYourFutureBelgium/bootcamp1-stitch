@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MyRoutes from './routes/myroutes';
-import './styles/style.css';
-import './index.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 class App extends Component {
   state = {};
@@ -9,8 +9,10 @@ class App extends Component {
     return (
       <React.Fragment>
         <div className="App">
+          <Header />
           <MyRoutes />
         </div>
+        <Footer />
       </React.Fragment>
     );
   }

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Footer from './Footer';
 import Button from './UI/Button';
 import { Row, Col } from 'antd';
 import { Card } from 'antd';
@@ -15,8 +13,6 @@ export default class LogIn extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
-
         <Row>
           <Col span={8} style={style}>
             <h1>Log In</h1>
@@ -36,7 +32,6 @@ export default class LogIn extends Component {
             <Button style={{ background: '#6eff' }}>Apply now</Button>
           </Col>
         </Row>
-        <Footer />
       </React.Fragment>
     );
   }

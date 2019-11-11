@@ -73,4 +73,13 @@ a:hover {
   background-color: rgb(185, 218, 200);
   color: white;
   text-align: center;
+  height: 80px;
+}
+
+.logo {
+  width: 31px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
 }

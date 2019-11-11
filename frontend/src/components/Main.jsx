@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Avatar } from 'antd';
 
 class Main extends Component {
   constructor(props) {
@@ -13,6 +14,15 @@ class Main extends Component {
       <main className="content">
         <section className="introduction">
           <h1>How does it work?</h1>
+          <Avatar size={154} shape="square">
+            {' '}
+            <img
+              src="https://picsum.photos/id/5/400/400"
+              alt="Smiley face"
+              width="130"
+              height="130"
+            ></img>
+          </Avatar>
           <p>
             someone has to make a body text here, Lorem Ipsum is simply dummy text of the printing
             and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
