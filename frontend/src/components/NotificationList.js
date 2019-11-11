@@ -35,6 +35,9 @@ class NotificationList extends Component {
     };
     this.declineNotification = this.declineNotification.bind(this);
     this.declineStitchNotification = this.declineStitchNotification.bind(this);
+    this.acceptNotification = this.acceptNotification.bind(this);
+    this.acceptStitchNotification = this.acceptStitchNotification.bind(this);
+
 
   }
 
@@ -43,6 +46,23 @@ class NotificationList extends Component {
   }
   componentDidUpdate() {
 
+  }
+
+  acceptNotification(id) {
+    this.setState(prevState => {
+      const notifications = prevState.notifications.filter(user => (user.id !== id));
+      return {
+      notifications : notifications
+      };
+    })
+  }
+  acceptStitchNotification(id) {
+    this.setState(prevState => {
+      const stitchNotifications = prevState.stitchNotifications.filter(user => (user.id !== id));
+      return {
+        stitchNotifications : stitchNotifications
+      };
+    })
   }
 
  declineNotification(id) {
@@ -64,11 +84,11 @@ class NotificationList extends Component {
   render() {
     
     const notificationsItems = this.state.notifications.map(user => {
-      return<ConnectionRequestItem key={user.id} decline={this.declineNotification} notification= {user} />;
+      return<ConnectionRequestItem key={user.id} accept={this.acceptNotification} decline={this.declineNotification} notification= {user} />;
     });
   
     const stitchNotificationItems = this.state.stitchNotifications.map(user => {
-      return<StitchRequestItem key ={user.id} decline={this.declineStitchNotification} stitchNotification={user} />
+      return<StitchRequestItem key ={user.id} accept={this.acceptStitchNotification} decline={this.declineStitchNotification} stitchNotification={user} />
     })
     return (
       <ul>

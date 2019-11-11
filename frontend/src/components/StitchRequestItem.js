@@ -4,7 +4,7 @@ import { Button } from 'antd';
 
 
 
-  function StitchRequestItem({stitchNotification, decline}) { 
+  function StitchRequestItem({stitchNotification, decline, accept}) { 
     const { name, role, stitch, id } = stitchNotification;
     return (
       <ul>
@@ -12,7 +12,7 @@ import { Button } from 'antd';
        <h2>Stitch request from {name}</h2>
        <h3>{role}</h3>
        <h3>{stitch}</h3>
-       <Button >accept</Button>
+       <Button onClick={() => accept(id)}>accept</Button>
        <Button onClick={() => decline(id)}>decline</Button>
       </ul>
     );
