@@ -4,8 +4,8 @@ import { Button } from 'antd';
 
 
 
-  function StitchRequestItem({stitchNotification}) { 
-    const { name, role, stitch} = stitchNotification;
+  function StitchRequestItem({stitchNotification, decline}) { 
+    const { name, role, stitch, id } = stitchNotification;
     return (
       <ul>
        <img src="./images/simplephoto.jpeg" width="50px" height="40px" alt="photoofconnect"/>
@@ -13,7 +13,7 @@ import { Button } from 'antd';
        <h3>{role}</h3>
        <h3>{stitch}</h3>
        <Button >accept</Button>
-       <Button>decline</Button>
+       <Button onClick={() => decline(id)}>decline</Button>
       </ul>
     );
 };

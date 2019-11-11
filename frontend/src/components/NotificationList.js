@@ -34,6 +34,8 @@ class NotificationList extends Component {
       
     };
     this.declineNotification = this.declineNotification.bind(this);
+    this.declineStitchNotification = this.declineStitchNotification.bind(this);
+
   }
 
   componentDidMount(){
@@ -43,22 +45,22 @@ class NotificationList extends Component {
 
   }
 
-  declineNotification(id) {
+ declineNotification(id) {
     this.setState(prevState => {
-      var notifications = prevState.notifications.findIndex(user => {
-        if(user.id ===id) {
-         return user = prevState.notifications.splice(notifications,1)
-        }
-        return user;
-      })
-
+      const notifications = prevState.notifications.filter(user => (user.id !== id));
       return {
       notifications : notifications
       };
     })
   }
-
-
+  declineStitchNotification(id) {
+    this.setState(prevState => {
+      const stitchNotifications = prevState.stitchNotifications.filter(user => (user.id !== id));
+      return {
+        stitchNotifications : stitchNotifications
+      };
+    })
+  }
   render() {
     
     const notificationsItems = this.state.notifications.map(user => {
@@ -66,7 +68,7 @@ class NotificationList extends Component {
     });
   
     const stitchNotificationItems = this.state.stitchNotifications.map(user => {
-      return<StitchRequestItem key ={user.id} stitchNotification={user} />
+      return<StitchRequestItem key ={user.id} decline={this.declineStitchNotification} stitchNotification={user} />
     })
     return (
       <ul>
