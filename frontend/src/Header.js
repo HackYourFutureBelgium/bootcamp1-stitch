@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from './components/layouts/headers/Navbar'
 
 class Header extends Component {
   constructor(props) {
@@ -14,8 +15,8 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="app-header">
-        <h1 className="app-header__title">Stitch</h1>
+      <header >
+        <Navbar/>
       </header>
     );
   }
