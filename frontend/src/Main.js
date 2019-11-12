@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Connection from './components/Connection'
+import BioForm from './components/BioForm';
 
 class Main extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Main extends Component {
     return (
       <main className="content">
         <section>
-          <Connection />
+          <BioForm />
          </section>
       </main>
     );

@@ -3,6 +3,8 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 
+import 'antd/dist/antd.css';
+
 class App extends Component {
   constructor(props) {
     super(props);
