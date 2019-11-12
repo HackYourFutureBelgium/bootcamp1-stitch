@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Button, Modal} from 'antd';
 import NormalLoginForm from './NormalLoginForm';
+import Context from '../Context';
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -41,6 +42,8 @@ class Header extends Component {
 
   render() {
     const { visible, confirmLoading, ModalText } = this.state;
+    const { user } =  this.props;
+
     return (
       <header className="app-header">
         <div className="app-header__box">
@@ -48,6 +51,7 @@ class Header extends Component {
           <h1 className="app-header__title">Stitch</h1>
         </div>
         <nav>
+          {user.name}
           <Button className="app-header__button-login" icon="login" onClick={this.showModal}>Log in</Button>
           <Modal
             title="Log in"
@@ -61,8 +65,20 @@ class Header extends Component {
         </Modal>
         </nav>
       </header>
+
     );
   }
 }
 
-export default Header;
+const HeaderWrapper = props => (
+  <Context.Consumer>
+    {({user, setAuthenticatedUser}) => (
+      <Header
+        user={user}
+        setAuthenticatedUser={setAuthenticatedUser}
+        {...props}
+      />
+    )}
+  </Context.Consumer>
+);
+export default HeaderWrapper;

@@ -9,7 +9,7 @@ class SignUpSection extends Component {
       visible: true,
     };
   }
-  showLoginForm(){
+  showLoginForm = () => {
     this.setState({
       visible: !this.state.visible,
     });

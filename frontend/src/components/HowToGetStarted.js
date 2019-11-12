@@ -7,7 +7,7 @@ const HowToGetStarted = () => {
       <ul>
         <li>Fill your <span>timeline</span> based on your skills</li>
         <li>Share your <span>profile link</span> to people you like</li>
-        <li>Get Connected and <span>get stiched<span></li>
+        <li>Get Connected and <span>get stiched</span></li>
       </ul>
     </section>
   );
