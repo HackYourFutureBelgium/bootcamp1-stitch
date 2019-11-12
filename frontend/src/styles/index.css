@@ -92,6 +92,13 @@ a:hover {
   font-family: 'Karla', Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
+.introduction-text p{
+  font-family: 'Istok Web', sans-serif;
+}
+.introduction-img {
+  width: 100%;
+  height: auto;
+}
 .signupSection {
   display: flex;
   flex-direction: column;
@@ -102,6 +109,7 @@ display: block;
 .app-header__box {
   display: flex;
   align-items:center;
+  padding: 45px 0;
 }
 .app-profileFinder {
   display: flex;
