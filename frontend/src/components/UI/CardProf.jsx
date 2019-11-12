@@ -19,7 +19,7 @@ export default class CardProf extends Component {
           actions={[
             <Icon type="facebook" key="setting" />,
             <Icon type="github" key="edit" />,
-            <Icon type="radar-chart" key="edit" />,
+
             <Avatar src="https://picsum.photos/id/8/200/200" />
           ]}
         >
@@ -28,7 +28,9 @@ export default class CardProf extends Component {
             title="Card title"
             description="This is the description"
           />
-          <p>Lorem ipsum dolor sit amet.</p>
+          <p>
+            Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae.
+          </p>
           <br />
         </Card>
       </div>

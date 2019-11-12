@@ -29,23 +29,16 @@ export default function Header(props) {
           {' '}
           <a href="http://localhost:3000/profile">profile</a>
         </Menu.Item>
+
         <Menu.Item key="2">
-          {' '}
-          <a href="http://localhost:3000/login">login</a>
-        </Menu.Item>
-        <Menu.Item key="3">
           {' '}
           <a href="http://localhost:3000/">main</a>
         </Menu.Item>
-        <Menu.Item key="4">
+        <Menu.Item key="3">
           {' '}
           <a href="http://localhost:3000/persondetail">persondetail</a>
         </Menu.Item>
         <Menu.Item key="5">
-          {' '}
-          <a href="http://localhost:3000/logout">logout</a>
-        </Menu.Item>
-        <Menu.Item key="6">
           {' '}
           <a href="http://localhost:3000/signup">sign up</a>
         </Menu.Item>

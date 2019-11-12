@@ -13,10 +13,11 @@ const CommentList = ({ comments }) => (
   />
 );
 
-const Editor = ({ onChange, onSubmit, submitting, value }) => (
+const Editor = ({ onChange, onSubmit, submitting, value, skill }) => (
   <div>
     <Form.Item>
       <Input rows={4} onChange={onChange} value={value} placeholder="add link..." />
+      <Input rows={4} onChange={onChange} placeholder="skill: " skill={skill}></Input>
     </Form.Item>
 
     <Form.Item>
@@ -31,11 +32,12 @@ class AddCard extends React.Component {
   state = {
     comments: [],
     submitting: false,
-    value: ''
+    value: '',
+    skill: ''
   };
 
   handleSubmit = () => {
-    if (!this.state.value) {
+    if (!this.state.value & !this.state.skill) {
       return;
     }
 
@@ -47,6 +49,7 @@ class AddCard extends React.Component {
       this.setState({
         submitting: false,
         value: '',
+        skill: '',
         comments: [
           {
             author: 'Tamar',
@@ -56,6 +59,8 @@ class AddCard extends React.Component {
                 <Timeline.Item color="purple" style={{ width: '500px' }}>
                   <p>{moment(this.state.creation).format()}</p>
                   <p>{this.state.value}</p>
+                  <p>{this.state.skill}</p>
+
                   {<CardProf />}
                   <img
                     src="https://picsum.photos/id/7/200/200"
@@ -80,12 +85,14 @@ class AddCard extends React.Component {
 
   handleChange = e => {
     this.setState({
-      value: e.target.value
+      value: e.target.value,
+      skill: e.target.skill
     });
+    console.log(e.target);
   };
 
   render() {
-    const { comments, submitting, value } = this.state;
+    const { comments, submitting, value, skill } = this.state;
 
     return (
       <div>
@@ -102,6 +109,7 @@ class AddCard extends React.Component {
               onSubmit={this.handleSubmit}
               submitting={submitting}
               value={value}
+              skill={skill}
             />
           }
           style={{ width: 500, height: 300 }}

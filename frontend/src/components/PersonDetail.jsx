@@ -3,7 +3,7 @@ import Timeline1 from '../components/UI/Timeline';
 import { Row, Col, Icon, Popconfirm, message } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from './UI/Button';
-import AddCard from './UI/AddCard';
+import AddPost from './UI/AddPost';
 
 const text = 'Are you sure to delete this task?';
 
@@ -12,6 +12,27 @@ function confirm() {
 }
 
 class PersonDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      skill: '',
+      title: '',
+      description: '',
+      url: ''
+    };
+  }
+
+  handleSubmit = async value => {
+    const { skill, title, description, url } = value;
+    await this.setState({
+      skill,
+      title,
+      url,
+      description
+    });
+    console.log(this.state);
+  };
+
   render() {
     return (
       <div>
@@ -34,9 +55,9 @@ class PersonDetail extends React.Component {
               <Button style={{ fontSize: '20px' }}>DELETE Bottom</Button>
             </Popconfirm>
           </Col>
-          <Col span={15}>
-            <AddCard></AddCard>
-            <Timeline1 />
+          <Col span={15} style={{ padding: '40px' }}>
+            <AddPost onSubmit={this.handleSubmit} />
+            <Timeline1 details={this.state} />
           </Col>
         </Row>
         <hr />

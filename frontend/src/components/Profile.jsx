@@ -28,7 +28,7 @@ export default class Profile extends Component {
               <Comments />
             </container>
           </Col>
-          <Col span={1}>
+          <Col span={1} style={{ padding: '40px' }}>
             <Button>ADD Comments</Button>
           </Col>
           <hr />
