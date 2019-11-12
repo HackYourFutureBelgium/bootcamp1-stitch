@@ -11,11 +11,11 @@ const HowToGetStarted = () => {
         </li>
         <li className="app-HowToGetStarted__item">
           <img src="publicity.png" alt="Stitch Logo" title="Stitch" height="85" />
-          <p className="app-HowToGetStarted__desc">Share your <span>profile link</span> to people you like</p>
+          <p className="app-HowToGetStarted__desc">Share your <span>profile link</span> to people you trust</p>
         </li>
         <li className="app-HowToGetStarted__item">
           <img src="getconnected.png" alt="Stitch Logo" title="Stitch" height="85" />
-          <p className="app-HowToGetStarted__desc">Get Connected and <span>get stiched</span></p>
+          <p className="app-HowToGetStarted__desc">Get Connected and <span>get stitched</span></p>
         </li>
       </ul>
     </section>
