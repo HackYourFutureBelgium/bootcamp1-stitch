@@ -32,7 +32,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
             <Form.Item label="Skill">{getFieldDecorator('skill')(<Input type="text" />)}</Form.Item>
             <Form.Item label="Url">
               {getFieldDecorator('url')(
-                <Input addonAfter={<Icon type="setting" />} defaultValue="mysite" />
+                <Input addonAfter={<Icon type="setting" />} defaultValue="website" />
               )}
             </Form.Item>
 
