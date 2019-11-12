@@ -6,7 +6,7 @@ const user = require("./user");
 console.log("i am on services")
 router.use("/user", user);
 
-/*const post = require("./post");
+const post = require("./post");
 router.use("/post", post);
 
 const connection = require("./connection");
