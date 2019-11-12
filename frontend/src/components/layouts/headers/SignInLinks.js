@@ -3,7 +3,8 @@ import Notificaions from './Notifications'
 import { NavLink } from 'react-router-dom'
 
 
-const SignedInLinks = (props) => {
+const SignedInLinks = ({loggedInStatus}) => {
+  
   return (
     <ul className="right">
       <li><NavLink to='/'>Connections</NavLink></li>

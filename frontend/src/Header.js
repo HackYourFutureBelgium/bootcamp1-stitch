@@ -16,7 +16,7 @@ class Header extends Component {
   render() {
     return (
       <header >
-        <Navbar/>
+        <Navbar loggedInStatus={this.props.loggedInStatus}/>
       </header>
     );
   }

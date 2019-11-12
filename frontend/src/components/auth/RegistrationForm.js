@@ -16,6 +16,7 @@ import {
   Button,
   AutoComplete,
 } from 'antd';
+import { updateLocale } from 'moment';
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -59,7 +60,7 @@ const residences = [
   state = {
     confirmDirty: false,
     autoCompleteResult: [],
-    user:[]
+    user:{}
   };
 
   handleSubmit = e => {
@@ -70,21 +71,26 @@ const residences = [
              confirm,
              residence
             } = values;
+           
             
       if (!err) {
         console.log('Received values of form: ', values);
         this.setState({
-          user: {
-            email: this.values.email
-          }
-        })
+
+          [this.state.user]:{email, password, confirm, residence}  
+        });
+        console.log(this.state)
       }
     });
   };
 
   handleConfirmBlur = e => {
     const { value } = e.target;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+    this.setState({
+       confirmDirty: this.state.confirmDirty || !!value 
+    
+    
+    });
   };
 
   compareToFirstPassword = (rule, value, callback) => {

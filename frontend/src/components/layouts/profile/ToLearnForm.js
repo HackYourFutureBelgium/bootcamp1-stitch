@@ -8,23 +8,29 @@ export default class ToLearnForm extends Component{
      constructor(props){
          super(props)
      }
+handleOnClick=(e) => {
+ 
 
+  console.log(e);
+  this.props.handleOnSubmit(e)
+  
+
+}
      render(){
         
           return(
-              <>
-              <Row style={{ width: 400 }}>
-              <Col>
-              <Input placeholder= "Add a Skill"></Input>
-              
-              </Col>
-              <Col>
-              <Button type="primary">Add</Button>
-              </Col>
-              
-              </Row>
-        
-         </>
+            <div>
+            
+            
+          
+            <Search
+              placeholder="input search text"
+              enterButton="Add"
+              size="large"
+              onSearch={this.handleOnClick}
+            />
+          </div>
+             
         )
      }
     

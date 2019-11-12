@@ -43,7 +43,12 @@ export default class Profile extends Component{
             } 
         }
     
-
+         handleOnSubmitTolearn =(skill)=>{
+            console.log(skill);
+            this.setState({
+                toLearn: this.state.person.toLearn.push(skill)
+            })
+         }
     render(){
        
         return(
@@ -55,7 +60,7 @@ export default class Profile extends Component{
         <Card bordered={false}>
             <UserDetails person= {this.state.person}/>
             <ToLearnList toLearn= {this.state.person.toLearn}/>
-            <ToLearnForm/>
+            <ToLearnForm handleOnSubmit={this.handleOnSubmitTolearn}/>
             <InvitationLinkGenerator/>
         </Card>
       </Col>
