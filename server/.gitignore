@@ -1,2 +1,7 @@
 node_modules
+<<<<<<< HEAD
 .env
+=======
+.env
+yarn.lock
+>>>>>>> feature/create-server-side-V2

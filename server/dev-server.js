@@ -1,13 +1,13 @@
-const express = require("express");
-const testingApp = express();
+require('dotenv').config();
+const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors');
-require('./config');
+
+const { MONGODB_URL } = process.env;
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(process.env.MONGODB_URL, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+  .connect(MONGODB_URL, { useNewUrlParser: true, useCreateIndex: false, useUnifiedTopology: true })
   .then(() => { console.log('Database connection established'); })
   .catch((err) => {
     console.error(`Database error, exiting. Stack trace:\n${err}`);
@@ -15,22 +15,22 @@ mongoose
   });
 
 
-testingApp.use(cors());
-testingApp.use(bodyParser.urlencoded({ extended: true }));
-testingApp.use(bodyParser.json());
+const app = express();
+const port = 4000;
 
-testingApp.get('/', (req, res) => {
-  res.json({ message: 'the frontend would serve at this route, the api is in the /api route' });
+app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  res.send("Hello World");
 });
 
-testingApp.get('/api', (req, res) => {
+app.get('/api', (req, res) => {
   res.json({ message: 'API ready' });
 });
 
 const apiServices = require("./services");
-testingApp.use("/api", apiServices);
+app.use("/api", apiServices);
 
-const port = process.env.PORT || 4000;
-testingApp.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen(port, function () {
+  console.log('server running at ' + port);
 });
