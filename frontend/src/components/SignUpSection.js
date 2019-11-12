@@ -29,8 +29,8 @@ class SignUpSection extends Component {
     }
     return (
       <section className="signupSection">
-        <h1 className="signupSection__title">Let's stitching your skills</h1>
-        <Button className="app-header__button-login"  type="primary" size="large">Be a Stitcher</Button>
+        <h1 className="signupSection__title">Let's stitch your skills</h1>
+        <Button className="app-header__button-login"  type="primary" size="large">Sign up</Button>
         {clicked}
       </section>
     );
