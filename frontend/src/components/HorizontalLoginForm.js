@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button } from 'antd';
-import Context from '../Context';
+import { withContext } from '../Context';
 import API from '../API.js';
 
 class HorizontalLoginForm extends Component {
@@ -72,15 +72,4 @@ class HorizontalLoginForm extends Component {
   }
 }
 
-const HorizontalLoginFormWrapper = props => (
-  <Context.Consumer>
-    {context => (
-      <HorizontalLoginForm
-        setAuthenticatedUser={context.setAuthenticatedUser}
-        {...props}
-      />
-    )}
-  </Context.Consumer>
-);
-
-export default HorizontalLoginFormWrapper;
+export default withContext(HorizontalLoginForm);

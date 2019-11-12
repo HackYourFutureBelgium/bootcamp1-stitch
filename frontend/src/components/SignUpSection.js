@@ -1,17 +1,25 @@
 import React, {Component} from 'react';
 import {Button} from 'antd';
 import HorizontalLoginForm from './HorizontalLoginForm';
+import RegistrationForm from './RegistrationForm';
 
 class SignUpSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: true,
+      registrationVisible: false,
+      loginVisible: false,
     };
   }
   showLoginForm = () => {
     this.setState({
-      visible: !this.state.visible,
+      loginVisible: !this.state.loginVisible,
+      registrationVisible: false,
+    });
+  }
+  showSignupForm = () => {
+    this.setState({
+      registrationVisible: !this.state.registrationVisible,
     });
   }
 
@@ -19,19 +27,25 @@ class SignUpSection extends Component {
     e.preventDefault();
     this.showLoginForm();
   }
+  clickHandleSignup = e =>{
+    e.preventDefault();
+    this.showSignupForm();
+  }
   render(){
-    const visible = this.state.visible;
+    const {loginVisible, registrationVisible}= this.state;
     let clicked;
-    if (visible) {
-      clicked = <span className="signupSection__login">Already a Stitcher <a onClick={this.clickHandleSignIn} href="#">log in here</a></span>;
+    if (loginVisible) {
+      clicked = <HorizontalLoginForm toggleCancel={this.showLoginForm} />;
     } else {
-      clicked = <HorizontalLoginForm toggleCancel={this.showLoginForm}/>;
+      clicked = <span className="signupSection__login">Already a Stitcher <a onClick={this.clickHandleSignIn} href="#">log in here</a></span>;
     }
     return (
       <section className="signupSection">
         <h1 className="signupSection__title">Let's stitch your skills</h1>
-        <Button className="app-header__button-login"  type="primary" size="large">Sign up</Button>
+        {!registrationVisible && <Button className="app-header__button-signup" onClick={this.clickHandleSignup} type="primary" size="large">Sign up</Button>}
+        {registrationVisible && <RegistrationForm toggleCancel = {this.showSignupForm}/>}
         {clicked}
+
       </section>
     );
   }

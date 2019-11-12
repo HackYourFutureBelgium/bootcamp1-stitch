@@ -4,7 +4,6 @@ import HowToGetStarted from './HowToGetStarted';
 import SignUpSection from './SignUpSection';
 import ProfileFinder from './ProfileFinder';
 
-
 class Main extends Component {
   constructor(props) {
     super(props);

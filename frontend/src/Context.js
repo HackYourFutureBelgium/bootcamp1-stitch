@@ -1,6 +1,20 @@
 import React from 'react';
 
-export default React.createContext({
-  user: null,
-  setAuthenticatedUser: () => {},
+const Context = React.createContext({
+ user: null,
+ setAuthenticatedUser: () => {},
 });
+export default Context;
+
+export function withContext(Component) {
+  return props => (
+      <Context.Consumer>
+      {context => (
+        <Component
+          {...context}
+          {...props}
+        />
+      )}
+    </Context.Consumer>
+  );
+}

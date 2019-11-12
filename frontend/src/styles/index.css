@@ -86,6 +86,7 @@ a:hover {
   flex-direction: row;
   padding: 20px;
   align-items: center;
+  width: 80%;
 }
 .introduction-text h1 {
   font-family: 'Karla', Arial, Helvetica, sans-serif;
