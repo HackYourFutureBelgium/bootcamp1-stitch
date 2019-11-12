@@ -126,6 +126,19 @@ display: block;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 30px;
+}
+.app-profileFinder__title{
+  font-family: 'Karla', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color:#1890ff;
+
+}
+.app-profileFinder p{
+  margin-top: 10px;
+    font-size: 1.6rem;
+    color: #002766;
+    font-family: 'Istok Web', sans-serif;
 }
 footer {
   flex-shrink: 0;
