@@ -1,7 +1,7 @@
 class APIClient {
   login(email, password) {
     return Promise.resolve({
-      name: 'Alfi',
+      name: 'logged in user',
       email
     });
   }
