@@ -92,8 +92,8 @@ class NotificationList extends Component {
     })
     return (
       <ul>
-      <li>{notificationsItems}</li>
-      <li>{stitchNotificationItems}</li>
+      <li style={{listStyleType:'none'}}>{notificationsItems}</li>
+      <li style={{listStyleType:'none'}}>{stitchNotificationItems}</li>
       </ul>
     )
 }
