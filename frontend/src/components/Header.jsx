@@ -29,6 +29,10 @@ export default function Header(props) {
         </Menu.Item>
         <Menu.Item key="5">
           {' '}
+          <a href="http://localhost:3000/notification">notification</a>
+        </Menu.Item>
+        <Menu.Item key="6">
+          {' '}
           <a href="http://localhost:3000/signup">sign up</a>
         </Menu.Item>
       </Menu>

@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from '../pages/NotFound';
 import PersonDetail from '../components/PersonDetail';
 import Main from '../components/Main';
-import Connection from '../components/Connection'
+import Connection from '../components/Connection';
+import Notification from '../components/Notification';
+
 
 export default class MyRoutes extends React.Component {
   constructor() {
@@ -24,6 +26,7 @@ export default class MyRoutes extends React.Component {
             <Route exact path="/profile/:id" component={Profile} />*/}
             <Route exact path="/persondetail" component={PersonDetail} />
             <Route exact path="/connections" component={Connection} />
+            <Route exact path="/notification" component={Notification} />
             <Route path="*" component={NotFound} />
           </Switch>
         </Router>
