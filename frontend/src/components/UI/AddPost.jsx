@@ -9,6 +9,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
     render() {
       const { visible, onCancel, onCreate, form } = this.props;
       const { getFieldDecorator } = form;
+
       return (
         <Modal
           visible={visible}
@@ -26,12 +27,14 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
                 rules: [{ required: true, message: 'Please input the title of collection!' }]
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="Description">
+            <Form.Item label="description">
               {getFieldDecorator('description')(<TextArea rows={4} />)}
             </Form.Item>
             <Form.Item label="Skill">{getFieldDecorator('skill')(<Input type="text" />)}</Form.Item>
             <Form.Item label="Url">
-              {getFieldDecorator('url')(<Input addonBefore="Http://" defaultValue="mysite" />)}
+              {getFieldDecorator('url', { initialValue: 'mysite' })(
+                <Input addonBefore="Http://" />
+              )}
             </Form.Item>
           </Form>
         </Modal>
@@ -62,6 +65,7 @@ class AddPost extends React.Component {
       if (err) {
         return;
       }
+
       this.props.onSubmit(values);
 
       form.resetFields();
