@@ -12,6 +12,9 @@ router.use("/post", post);
 const connection = require("./connection");
 router.use("/connection", connection);
 
+const newLearning = require("./newLearning");
+router.use("/newLearning", newLearning);
+
 
 /*
 const search = require("./search");
