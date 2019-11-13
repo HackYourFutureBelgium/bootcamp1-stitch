@@ -9,10 +9,10 @@ class Connection extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Connections</h1>
+      <section className="Connection">
+        <h1 className="Connection-title">Connections</h1>
         <ConnectionList />
-      </div>
+      </section>
     )
 
 }
