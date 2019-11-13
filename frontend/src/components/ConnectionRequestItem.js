@@ -12,7 +12,7 @@ function ConnectionRequestItem({notification, decline, accept}) {
        <h2 className="notification-type" style={{textTransform:'capitalize', margin: '10px 0px'}}>Connection request from {name}</h2>
        <h3 className="notification-role" style={{textTransform:'capitalize', margin: '10px 0px'}}>{role}</h3>
        <Button type="primary" style={{margin:'0px 5px'}} onClick={() => accept(id)}>Accept</Button>
-       <Button onClick={() => decline(id)}>Decline</Button>
+       <Button style={{color:'#1890ff'}} onClick={() => decline(id)}>Decline</Button>
       </div>
       </Card>
     );
