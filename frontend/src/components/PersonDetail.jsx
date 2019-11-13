@@ -61,7 +61,7 @@ class PersonDetail extends React.Component {
               ]}
             ></Card>
           </Col>
-          <Col span={2}>
+          <Col span={7}>
             <Button>
               <Icon type="search" />
               Filter by skils
@@ -77,7 +77,7 @@ class PersonDetail extends React.Component {
               <Button style={{ fontSize: '20px' }}>Delete</Button>
             </Popconfirm>
           </Col>
-          <Col span={15} style={{ padding: '40px' }}>
+          <Col span={10} style={{ padding: '40px' }}>
             <AddPost onSubmit={this.handleSubmit} />
             <Timeline1 details={this.state.posts} />
           </Col>

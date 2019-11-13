@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Timeline, Icon, Avatar, Card, Button } from 'antd';
+import { Timeline, Icon, Avatar, Card } from 'antd';
 import '../../styles/style.css';
 import '../../styles/styleProfile.css';
 
