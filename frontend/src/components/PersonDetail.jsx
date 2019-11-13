@@ -1,7 +1,6 @@
 import React from 'react';
 import Timeline1 from '../components/UI/Timeline';
 import { Row, Col, Icon, Popconfirm, message } from 'antd';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from './UI/Button';
 import AddPost from './UI/AddPost';
 
