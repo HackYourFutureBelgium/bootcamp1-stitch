@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Button, Modal, Form, Input, Radio, Icon } from 'antd';
+import { Button, Modal, Form, Input, Icon } from 'antd';
 const { TextArea } = Input;
 
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
@@ -18,8 +18,8 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <Form.Item label="Date content">
-              {getFieldDecorator('description')(<Input rows={4} type="number" />)}
+            <Form.Item label="day:">
+              {getFieldDecorator('time')(<Input rows={4} type="text" />)}
             </Form.Item>
             <Form.Item label="Title">
               {getFieldDecorator('title', {
@@ -31,20 +31,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
             </Form.Item>
             <Form.Item label="Skill">{getFieldDecorator('skill')(<Input type="text" />)}</Form.Item>
             <Form.Item label="Url">
-              {getFieldDecorator('url')(
-                <Input addonAfter={<Icon type="setting" />} defaultValue="website" />
-              )}
-            </Form.Item>
-
-            <Form.Item className="collection-create-form_last-form-item">
-              {getFieldDecorator('modifier', {
-                initialValue: 'public'
-              })(
-                <Radio.Group>
-                  <Radio value="public">Public</Radio>
-                  <Radio value="private">Private</Radio>
-                </Radio.Group>
-              )}
+              {getFieldDecorator('url')(<Input addonBefore="Http://" defaultValue="mysite" />)}
             </Form.Item>
           </Form>
         </Modal>
@@ -89,8 +76,13 @@ class AddPost extends React.Component {
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>
-          New Collection
+        <Button
+          type="primary"
+          onClick={this.showModal}
+          style={{ marginLeft: 500, height: 'auto', whiteSpace: 'nowrap', fontSize: '18px' }}
+        >
+          <Icon type="plus-circle" style={{ fontSize: '38px' }} />
+          Add Time line
         </Button>
         <CollectionCreateForm
           wrappedComponentRef={this.saveFormRef}
