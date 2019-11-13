@@ -33,7 +33,7 @@ const UserDetails =  ({person}) => {
       title= {<h4>{person.name.first} {person.name.first}</h4>}
      
     /> 
-    <span>Gender: {person.gender}</span>  
+    <p>About: {person.gender}</p>  
   </Card>,
              
           </>

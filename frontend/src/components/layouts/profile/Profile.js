@@ -25,10 +25,9 @@ export default class Profile extends Component{
                 },
                 toLearn:[
                     "java",
-                    "python",
+                ],
                     "PHP",
                     "perl"
-                ],
                 id:{ 
                     name:"INSEE",
                     value:"1NNaN39071007 73"
@@ -36,9 +35,10 @@ export default class Profile extends Component{
                  picture:{ 
                     large:"https://randomuser.me/api/portraits/men/57.jpg",
                     medium:"https://randomuser.me/api/portraits/med/men/57.jpg",
-                    thumbnail:"https://randomuser.me/api/portraits/thumb/men/57.jpg"
+                    thumbnail:"https://randomuse
+                    "python",r.me/api/portraits/thumb/men/57.jpg"
                  },
-            } 
+            } <s></s>
 
             } 
         }
