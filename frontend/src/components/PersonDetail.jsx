@@ -1,14 +1,8 @@
 import React from 'react';
 import Timeline1 from '../components/UI/Timeline';
-import { Row, Col, Icon, Popconfirm, message, Button, Card } from 'antd';
+import { Row, Col, Icon, Button, Card } from 'antd';
 import AddPost from './UI/AddPost';
 import '../styles/styleProfile.css';
-
-const text = 'Are you sure to delete this task?';
-
-function confirm() {
-  message.info('Clicked on Yes.');
-}
 
 class PersonDetail extends React.Component {
   constructor(props) {
@@ -43,6 +37,11 @@ class PersonDetail extends React.Component {
     console.log(this.state);
   };
 
+  //delete todo
+  delTodo = url => {
+    this.setState({ posts: [...this.state.posts.filter(post => post.url !== url)] });
+  };
+
   render() {
     return (
       <div>
@@ -55,31 +54,21 @@ class PersonDetail extends React.Component {
             </p>
             <Card
               actions={[
-                <Icon type="facebook" key="setting" />,
-                <Icon type="github" key="edit" />,
-                <Icon type="radar-chart" key="edit" />
+                <Icon type='facebook' key='setting' />,
+                <Icon type='github' key='edit' />,
+                <Icon type='radar-chart' key='edit' />
               ]}
             ></Card>
           </Col>
           <Col span={7}>
             <Button>
-              <Icon type="search" />
+              <Icon type='search' />
               Filter by skils
             </Button>
-
-            <Popconfirm
-              placement="bottom"
-              title={text}
-              onConfirm={confirm}
-              okText="Yes"
-              cancelText="No"
-            >
-              <Button style={{ fontSize: '20px' }}>Delete</Button>
-            </Popconfirm>
           </Col>
           <Col span={10} style={{ padding: '40px' }}>
             <AddPost onSubmit={this.handleSubmit} />
-            <Timeline1 details={this.state.posts} />
+            <Timeline1 details={this.state.posts} delTodo={this.delTodo} />
           </Col>
         </Row>
       </div>
