@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Timeline, Icon, Avatar, Card, Button } from 'antd';
 import '../../styles/style.css';
 import '../../styles/styleProfile.css';
+import { Timeline, Icon, Avatar, Card } from 'antd';
 
 const { Meta } = Card;
 
@@ -10,72 +10,40 @@ const cardStyle = {
   color: '#333'
 };
 
-export default class Timeline1 extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class Timeline1 extends Component {
   render() {
-    return (
-      <div>
-        <Timeline mode="alternate">
-          <Timeline.Item color="black" dot={<Icon type="github" style={{ fontSize: '20px' }} />}>
-            <h1>{this.props.details.time}</h1>
+    const { details } = this.props;
 
-            <Card
-              hoverable
-              style={cardStyle}
-              actions={[
-                <Icon type="github" key="setting" />,
-                <p target="_blanck">{this.props.details.url}</p>
-              ]}
-            >
-              <Meta
-                avatar={
-                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                }
-                title="Card title"
-              />
-              <h3>{this.props.details.skill}</h3>
-              <h2>{this.props.details.title}</h2>
-              <p>{this.props.details.description}</p>
-            </Card>
-          </Timeline.Item>
+    // TODO remove reverse and order by context date instead reverse()
+    const $details = details.reverse().map(detail => (
+      <React.Fragment key={detail.url}>
+        <Timeline.Item color="black" dot={<Icon type="github" style={{ fontSize: '20px' }} />}>
+          <h1>{detail.time}</h1>
 
-          <Timeline.Item color="red" dot={<Icon type="radar-chart" />}>
-            <p>Solve initial network problems 2015-09-01</p>
-          </Timeline.Item>
-          <Timeline.Item dot={<Icon type="radar-chart" />}>
-            <p>
-              {' '}
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-              architecto beatae vitae dicta sunt explicabo.
-            </p>
-          </Timeline.Item>
-          <Timeline.Item dot={<Icon type="codepen" style={{ fontSize: '20px' }} />}>
-            Network problems being solved 2015-09-01
-          </Timeline.Item>
-          <Timeline.Item color="black" dot={<Icon type="github" style={{ fontSize: '20px' }} />}>
-            Network problems being solved 2015-09-01
-          </Timeline.Item>
-          <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-          <Timeline.Item
-            dot={<Icon type="github" style={{ fontSize: '30px' }} />}
-            placement="rightTop"
+          <Card
+            hoverable
+            style={cardStyle}
+            actions={[<Icon type="github" key="setting" />, <p target="_blanck">{detail.url}</p>]}
           >
-            Technical testing 2015-09-01 5555555
-          </Timeline.Item>
-
-          <hr></hr>
-          <Button style={{ marginLeft: 500, whiteSpace: 'nowrap' }}>
-            <a href="http://localhost:3000/profile">Go Back</a>
-            <Icon type="radar-chart" style={{ fontSize: '29px' }} />
-          </Button>
-
-          <hr></hr>
-        </Timeline>
-      </div>
+            <Meta
+              avatar={
+                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              }
+              title="Card title"
+            />
+            <h3>{detail.skill}</h3>
+            <h2>{detail.title}</h2>
+            <p>{detail.description}</p>
+          </Card>
+        </Timeline.Item>
+      </React.Fragment>
+    ));
+    return (
+      <React.Fragment>
+        <Timeline>{$details}</Timeline>
+      </React.Fragment>
     );
   }
 }
+
+export default Timeline1;
