@@ -12,7 +12,7 @@ function ConnectionItem({ connection, disconnect }) {
       <h2 style={{textTransform:'capitalize', margin: '10px 0px'}}>{name}</h2>
       <h3 style={{textTransform:'capitalize', margin: '10px 0px'}}>{role}</h3>
       <Button type="primary" style={{margin:'0px 5px'}} >see the profile</Button>
-      <Button onClick={() => disconnect(id)}>disconnect</Button>
+      <Button style={{color:'#1890ff'}} onClick={() => disconnect(id)}>disconnect</Button>
     </div>
     </Card>
   );
