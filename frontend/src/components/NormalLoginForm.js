@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input } from 'antd';
+import { withContext } from '../Context';
+import API from '../API.js';
 
 class NormalLoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      visible: this.props.toggleCancel,
+      email: '',
+      password: ''
     };
+  }
+  handleEmailChanged = e => {
+    this.setState({ email: e.currentTarget.value });
+  }
+
+  handlePasswordChanged = e => {
+    this.setState({ password: e.currentTarget.value });
   }
   handleSubmit = e => {
     e.preventDefault();
@@ -15,16 +26,25 @@ class NormalLoginForm extends Component {
         console.log('Received values of form: ', values);
       }
     });
+
+    const { email, password } = this.state;
+    API.login(email, password).then(user => {
+      const { setAuthenticatedUser } = this.props;
+      setAuthenticatedUser(user);
+    });
   };
 
   render() {
-
+    const { email, password } = this.state;
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <Form.Item>
-          <Input type="email"
+          <Input
+            type="email"
             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
             placeholder="Email"
+            value={email}
+            onChange={this.handleEmailChanged}
             />
         </Form.Item>
         <Form.Item>
@@ -32,6 +52,8 @@ class NormalLoginForm extends Component {
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
               placeholder="Password"
+              value={password}
+              onChange={this.handlePasswordChanged}
             />
         </Form.Item>
       </Form>
@@ -39,4 +61,4 @@ class NormalLoginForm extends Component {
   }
 }
 
-export default NormalLoginForm;
+export default withContext(NormalLoginForm);
