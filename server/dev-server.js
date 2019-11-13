@@ -31,6 +31,7 @@ app.get('/api', (req, res) => {
 const apiServices = require("./services");
 app.use("/api", apiServices);
 
-app.listen(port, function(){
-    console.log('server running at ' +port);
-});
+app.listen(process.env.PORT, () => 
+  console.log(`server listening on port ${process.env.PORT} ` ),
+);
+
