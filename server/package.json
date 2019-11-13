@@ -6,7 +6,7 @@
     "mongoose": "^5.7.8"
   },
   "scripts": {
-    "start": "nodemon dev-server.js"
+    "start": "nodemon index.js"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
