@@ -3,18 +3,11 @@ const router = express.Router()
 
 const controller = require("./controller")
 
-router.post("/createConnection", controller.createConnection);
+router.post("/", controller.createConnection);
 
-router.post("/delete", controller.connectionDelete);
+router.delete("/:id", controller.connectionDelete);
 
-router.get("/getConnection", controller.getConnection);
-
-
-
-
-
-
-
+router.get("/", controller.getConnection);
 
 
 
