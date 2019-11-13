@@ -1,14 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-<<<<<<< HEAD
-const posts = require("./posts");
-router.use("/posts", posts);
-
-=======
 
 const user = require("./user");
-console.log("i am on services")
 router.use("/user", user);
 
 const post = require("./post");
@@ -33,5 +27,4 @@ router.use("/signup", signup);
 const notification = require("./notification");
 router.use("/notification", notification);
 */
->>>>>>> feature/create-server-side-V2
 module.exports = router;

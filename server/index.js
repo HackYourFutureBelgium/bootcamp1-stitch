@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*require('dotenv').config();
 const express = require ('express');
 const bodyParse = require ('body-parser');
@@ -18,5 +16,4 @@ app.listen(port, function(){
     console.log('server running at ' +port);
 });*/
 
->>>>>>> feature/create-server-side-V2
 module.exports = require("./services");

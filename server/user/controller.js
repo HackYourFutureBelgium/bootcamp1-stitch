@@ -19,14 +19,14 @@ controller.findAll = (req, res) => {
 }
 
 controller.signUp = (req, res) => {
-  console.log("-- POST /signUp --");
-  
-  const newUser = { 
-    firstName: req.body.firstName ,
-    email: req.body.email ,
-    about: req.body.about ,
-    password: req.body.password ,
-    img: req.body.img ,
+  console.log("-- POST /user --");
+
+  const newUser = {
+    firstName: req.body.firstName,
+    email: req.body.email,
+    about: req.body.about,
+    password: req.body.password,
+    img: req.body.img,
     status: req.body.status
   };
   user.create(newUser)
@@ -45,13 +45,13 @@ controller.update = (req, res) => {
   //const userId = req.params.id;
   console.log("post user id = " + userId + "value");
   const idObject = { _id: userId };
- 
-  const updatedUser = { 
-    firstName: req.body.firstName ,
-    email: req.body.email ,
-    about: req.body.about ,
-    password: req.body.password ,
-    img: req.body.img ,
+
+  const updatedUser = {
+    firstName: req.body.firstName,
+    email: req.body.email,
+    about: req.body.about,
+    password: req.body.password,
+    img: req.body.img,
     status: req.body.status
   };
   user.update(idObject, updatedUser)

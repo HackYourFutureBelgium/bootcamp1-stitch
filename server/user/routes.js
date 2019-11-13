@@ -6,10 +6,10 @@ const controller = require("./controller")
 
 router.get("", controller.welcome);
 
-router.get("/findAll" , controller.findAll);
+router.get("/users", controller.findAll);
 router.post("/signUp", controller.signUp);
 //router.post("/update/:id", controller.update);
 router.post("/update", controller.update);
-router.post("/delete", controller.postIdDelete);
+router.delete("/:id", controller.postIdDelete);
 
 module.exports = router;
