@@ -15,6 +15,9 @@ router.use("/connection", connection);
 const newLearning = require("./newLearning");
 router.use("/newLearning", newLearning);
 
+const notification = require("./notification");
+router.use("/notification", notification);
+
 
 /*
 const search = require("./search");
