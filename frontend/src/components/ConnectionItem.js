@@ -11,7 +11,7 @@ function ConnectionItem({ connection, disconnect }) {
       <img src="./images/simplephoto.jpeg" width="100px" height="70px" alt="photoofconnect" />
       <h2 style={{textTransform:'capitalize', margin: '10px 0px'}}>{name}</h2>
       <h3 style={{textTransform:'capitalize', margin: '10px 0px'}}>{role}</h3>
-      <Button>see the profile</Button>
+      <Button style={{margin:'0px 5px'}} >see the profile</Button>
       <Button onClick={() => disconnect(id)}>disconnect</Button>
     </div>
     </Card>
