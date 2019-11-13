@@ -1,7 +1,8 @@
 import React from 'react'
 import Avatar from './Upload'
-import { Input } from 'antd';
+import { Input, Card } from 'antd';
 import { Button } from 'antd';
+
 
 const {TextArea} = Input;
 class BioFormItem extends React.Component {
@@ -25,12 +26,15 @@ class BioFormItem extends React.Component {
     
     handleSubmit =(event) => {
         event.preventDefault();
+        console.log(event);
     }
     render() {
         return( 
            <div>
-               <form>
+                   <Card style={{ width: 600, border: 'none'}}>
+               <form style={{fontSize:'16px'}}>
                 <Input 
+                style= {{margin:'10px 0px'}}
                 type='text' 
                 name='firstName'
                 value={this.state.firstName} 
@@ -39,6 +43,7 @@ class BioFormItem extends React.Component {
                 />
                 <br />
                 <Input 
+                style= {{margin:'10px 0px'}}
                 type='text'
                 name='lastName' 
                 value={this.state.lastName} 
@@ -48,6 +53,7 @@ class BioFormItem extends React.Component {
                 <br />
 
                 <Input 
+                style= {{margin:'10px 0px'}}
                 type='email' 
                 name='email' 
                 value={this.state.email} 
@@ -56,10 +62,12 @@ class BioFormItem extends React.Component {
                 />
                 <br />
 
-                <Avatar />
+                
+                <Avatar style= {{margin:'10px 0px'}}/>
                 <br />
 
                 <Input 
+                style= {{margin:'10px 0px'}}
                 type='text' 
                 name='status' 
                 value={this.state.status} 
@@ -69,6 +77,7 @@ class BioFormItem extends React.Component {
                 <br />
 
                 <TextArea rows={4} 
+                style= {{margin:'10px 0px'}}
                 name='about' 
                 value={this.state.about} 
                 placeholder='About you' 
@@ -76,8 +85,9 @@ class BioFormItem extends React.Component {
                 />
                 <br />
 
-                <Button onClick={this.handleSubmit}>Submit</Button>
+                <Button onClick={this.handleSubmit} type='primary'>Submit</Button>
             </form>
+            </Card>
              </div>
         )
         }
