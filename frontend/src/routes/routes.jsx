@@ -15,7 +15,6 @@ export default class MyRoutes extends React.Component {
 
   render() {
     return (
-      <div>
         <Router>
           <Switch>
             <Route exact path="/" component={Main} />
@@ -26,7 +25,6 @@ export default class MyRoutes extends React.Component {
             <Route path="*" component={NotFound} />
           </Switch>
         </Router>
-      </div>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MyRoutes from './routes/myroutes';
+import Routes from './routes/routes';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -7,13 +7,11 @@ class App extends Component {
   state = {};
   render() {
     return (
-      <React.Fragment>
         <div className="App">
           <Header />
-          <MyRoutes />
+          <Routes />
           <Footer />
         </div>
-      </React.Fragment>
     );
   }
 }
