@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import 'normalize.css';
-import './index.css';
+import './styles/index.css';
 import 'antd/dist/antd.css';
 
 import '../src/styles/style.css';

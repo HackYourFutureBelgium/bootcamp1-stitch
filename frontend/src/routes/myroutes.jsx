@@ -1,5 +1,5 @@
 import React from 'react';
-import '../index.css';
+import '../styles/index.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from '../pages/NotFound';
 import PersonDetail from '../components/PersonDetail';
