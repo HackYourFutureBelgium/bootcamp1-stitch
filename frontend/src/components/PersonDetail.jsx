@@ -8,16 +8,18 @@ class PersonDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [
-        {
-          skills: '',
-          title: '',
-          description: '',
-          url: '',
-          time: ''
-        }
-      ]
+      posts: [],
+      currentPosts: null,
+      postsAreLoading: true
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/posts', { headers: { 'Content-Type': 'application/json' } })
+      .then(r => r.json())
+      .then(posts => {
+        this.setState({ posts, postsAreLoading: false });
+      });
   }
 
   handleSubmit = async value => {
@@ -39,6 +41,7 @@ class PersonDetail extends React.Component {
 
   //delete todo
   delTodo = url => {
+    console.log(url);
     this.setState({ posts: [...this.state.posts.filter(post => post.url !== url)] });
   };
 
