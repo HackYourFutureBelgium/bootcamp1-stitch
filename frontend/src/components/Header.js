@@ -37,7 +37,7 @@ class Header extends Component {
   };
 
   render() {
-    const { visible, confirmLoading, ModalText } = this.state;
+    const { visible, confirmLoading } = this.state;
     const { user } =  this.props;
 
     return (

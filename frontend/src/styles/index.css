@@ -219,3 +219,12 @@ main {
   text-align: left;
   color: #002766;
 }
+
+.button-link {
+  color: #1890ff;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  margin: 0;
+}

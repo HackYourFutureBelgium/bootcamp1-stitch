@@ -1,10 +1,10 @@
 import React from 'react';
-import { Form, Input, Select, Checkbox, Button, AutoComplete } from 'antd';
+import { Form, Input, Checkbox, Button, AutoComplete } from 'antd';
 import { withContext } from '../Context';
 
-const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 
+/*
 const residences = [
   {
     value: 'zhejiang',
@@ -39,6 +39,7 @@ const residences = [
     ]
   }
 ];
+*/
 
 class RegistrationForm extends React.Component {
   state = {
@@ -116,14 +117,15 @@ class RegistrationForm extends React.Component {
         }
       }
     };
-    const prefixSelector = getFieldDecorator('prefix', {
+
+    /* const prefixSelector = getFieldDecorator('prefix', {
       initialValue: '86'
     })(
       <Select style={{ width: 70 }}>
         <Option value='86'>+86</Option>
         <Option value='87'>+87</Option>
       </Select>
-    );
+    ); */
 
     const websiteOptions = autoCompleteResult.map(website => (
       <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
@@ -176,7 +178,8 @@ class RegistrationForm extends React.Component {
             valuePropName: 'checked',
           })(
             <Checkbox>
-              I have read the <a href="">agreement</a>
+              {/* TODO swap out with Link going to actual terms and agreements */}
+              I have read the <button className="button-link">agreement</button>
             </Checkbox>,
           )}
         </Form.Item>
