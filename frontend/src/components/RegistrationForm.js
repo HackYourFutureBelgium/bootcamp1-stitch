@@ -1,17 +1,5 @@
 import React from 'react';
-import {
-  Form,
-  Input,
-  Tooltip,
-  Icon,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete,
-} from 'antd';
+import { Form, Input, Select, Checkbox, Button, AutoComplete } from 'antd';
 import { withContext } from '../Context';
 
 const { Option } = Select;
@@ -28,11 +16,11 @@ const residences = [
         children: [
           {
             value: 'xihu',
-            label: 'West Lake',
-          },
-        ],
-      },
-    ],
+            label: 'West Lake'
+          }
+        ]
+      }
+    ]
   },
   {
     value: 'jiangsu',
@@ -44,18 +32,18 @@ const residences = [
         children: [
           {
             value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-          },
-        ],
-      },
-    ],
-  },
+            label: 'Zhong Hua Men'
+          }
+        ]
+      }
+    ]
+  }
 ];
 
 class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
-    autoCompleteResult: [],
+    autoCompleteResult: []
   };
 
   handleSubmit = e => {
@@ -98,7 +86,7 @@ class RegistrationForm extends React.Component {
     }
     this.setState({ autoCompleteResult });
   };
-  handleCancel = e =>{
+  handleCancel = e => {
     const { toggleCancel } = this.props;
     toggleCancel();
   };
@@ -109,32 +97,32 @@ class RegistrationForm extends React.Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 8 },
+        sm: { span: 8 }
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 16 },
-      },
+        sm: { span: 16 }
+      }
     };
     const tailFormItemLayout = {
       wrapperCol: {
         xs: {
           span: 24,
-          offset: 0,
+          offset: 0
         },
         sm: {
           span: 16,
-          offset: 8,
-        },
-      },
+          offset: 8
+        }
+      }
     };
     const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
+      initialValue: '86'
     })(
       <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>,
+        <Option value='86'>+86</Option>
+        <Option value='87'>+87</Option>
+      </Select>
     );
 
     const websiteOptions = autoCompleteResult.map(website => (
@@ -143,57 +131,57 @@ class RegistrationForm extends React.Component {
 
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <Form.Item label="E-mail">
+        <Form.Item label='E-mail'>
           {getFieldDecorator('email', {
             rules: [
               {
                 type: 'email',
-                message: 'The input is not valid E-mail!',
+                message: 'The input is not valid E-mail!'
               },
               {
                 required: true,
-                message: 'Please input your E-mail!',
-              },
-            ],
+                message: 'Please input your E-mail!'
+              }
+            ]
           })(<Input />)}
         </Form.Item>
-        <Form.Item label="Password" hasFeedback>
+        <Form.Item label='Password' hasFeedback>
           {getFieldDecorator('password', {
             rules: [
               {
                 required: true,
-                message: 'Please input your password!',
+                message: 'Please input your password!'
               },
               {
-                validator: this.validateToNextPassword,
-              },
-            ],
+                validator: this.validateToNextPassword
+              }
+            ]
           })(<Input.Password />)}
         </Form.Item>
-        <Form.Item label="Confirm Password" hasFeedback>
+        <Form.Item label='Confirm Password' hasFeedback>
           {getFieldDecorator('confirm', {
             rules: [
               {
                 required: true,
-                message: 'Please confirm your password!',
+                message: 'Please confirm your password!'
               },
               {
-                validator: this.compareToFirstPassword,
-              },
-            ],
+                validator: this.compareToFirstPassword
+              }
+            ]
           })(<Input.Password onBlur={this.handleConfirmBlur} />)}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           {getFieldDecorator('agreement', {
-            valuePropName: 'checked',
+            valuePropName: 'checked'
           })(
             <Checkbox>
-              I have read the <a href="">agreement</a>
-            </Checkbox>,
+              I have read the <a href=''>agreement</a>
+            </Checkbox>
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button type='primary' htmlType='submit'>
             Register
           </Button>
           <Button style={{ marginLeft: 8 }} onClick={this.handleCancel}>
