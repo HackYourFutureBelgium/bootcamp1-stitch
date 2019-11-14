@@ -82,13 +82,13 @@ class Header extends Component {
           <img src="stitchlogo.png" alt="Stitch Logo" title="Stitch" height="85" width="85" />
           <h1 className="app-header__title">Stitch</h1>
         </div>
-        {!navBarVisible &&   <nav>
-            <a href="http://localhost:3000/persondetail">profile</a>
-            <a href="http://localhost:3000/connections">connections</a>
-            <a href="http://localhost:3000/notification">notifications</a>
-            <a href="http://localhost:3000/">log out</a>
+        {!navBarVisible && <nav>
+            <Button href="http://localhost:3000/persondetail" type="link">Timeline</Button>
+            <Button href="http://localhost:3000/connections" type="link">Connections</Button>
+            <Button href="http://localhost:3000/notification" type="link">Notifications</Button>
+            <Button href="http://localhost:3000/" type="link">Log out</Button>
           </nav>}
-        {user.name}
+
         <Button className="app-header__button-login" icon="login" onClick={this.showModal}>Log in</Button>
         {this.renderRedirect()}
         <Modal
@@ -99,7 +99,6 @@ class Header extends Component {
           confirmLoading={confirmLoading}
           onCancel={this.handleCancel}
         >
-
         <NormalLoginForm />
       </Modal>
       </header>
