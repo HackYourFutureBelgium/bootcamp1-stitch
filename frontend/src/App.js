@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import HeaderBeforeLogIn from './components/HeaderBeforeLogIn';
-import HeaderAfterLogIn from './components/HeaderAfterLogIn';
 import Routes from './routes/routes';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -39,7 +37,7 @@ setAuthenticatedUser = user =>{
         <div className="App">
           <Context.Provider value={context}>
             <Router>
-              <HeaderBeforeLogIn />
+              <Header />
               <Routes />
               <Footer />
             </Router>

@@ -1,40 +1,110 @@
-import React from 'react';
-import { PageHeader, Menu } from 'antd';
+import React, { Component } from 'react';
+import {Button, Modal} from 'antd';
+import NormalLoginForm from './NormalLoginForm';
+import { withContext } from '../Context';
+import { Redirect } from 'react-router-dom'
+import API from '../API.js';
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ModalText: 'Content of the modal',
+      visible: false,
+      confirmLoading: false,
+      redirect: false,
+    };
+  }
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
 
-export default function Header(props) {
-  return (
-    <React.Fragment>
-      <Menu
-        mode="horizontal"
-        defaultSelectedKeys={['1']}
-        style={{ lineHeight: '64px' }}
-      >
-        <Menu.Item key="1">
-          {' '}
-          <a href="http://localhost:3000/profile">profile</a>
-        </Menu.Item>
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/persondetail' />
+    }
+  }
 
-        <Menu.Item key="2">
-          {' '}
-          <a href="http://localhost:3000/">main</a>
-        </Menu.Item>
-        <Menu.Item key="3">
-          {' '}
-          <a href="http://localhost:3000/persondetail">persondetail</a>
-        </Menu.Item>
-        <Menu.Item key="4">
-          {' '}
-          <a href="http://localhost:3000/connections">connections</a>
-        </Menu.Item>
-        <Menu.Item key="5">
-          {' '}
-          <a href="http://localhost:3000/notification">notifications</a>
-        </Menu.Item>
-        <Menu.Item key="6">
-          {' '}
-          <a href="http://localhost:3000/signup">sign up</a>
-        </Menu.Item>
-      </Menu>
-    </React.Fragment>
-  );
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+  handleLogIn = () => {
+    this.setState({
+      ModalText: 'The modal will be closed after two seconds',
+      confirmLoading: true,
+    });
+    setTimeout(() => {
+      this.setState({
+        visible: false,
+        confirmLoading: false
+      });
+      const { email, password } = this.state;
+      API.login(email, password).then(user => {
+        const { setAuthenticatedUser } = this.props;
+        setAuthenticatedUser(user);
+      });
+      this.setRedirect();
+    }, 2000);
+  };
+
+  handleCancel = () => {
+    console.log('Clicked cancel button');
+    this.setState({
+      visible: false,
+    });
+  };
+  showNavBar = () => {
+    this.setState({
+      navBarVisible: !this.state.navBarVisible,
+
+    });
+  }
+  clickHandleSignIn = e =>{
+    e.preventDefault();
+    this.showLoginForm();
+  }
+  componentDidMount() {
+
+  }
+
+
+  render() {
+    const { visible, confirmLoading, ModalText} = this.state;
+    const { user } =  this.props;
+    const navBarVisible = user.email === "";
+
+    return (
+      <header className="app-header">
+        <div className="app-header__box">
+          <img src="stitchlogo.png" alt="Stitch Logo" title="Stitch" height="85" width="85" />
+          <h1 className="app-header__title">Stitch</h1>
+        </div>
+        {!navBarVisible &&   <nav>
+            <a href="http://localhost:3000/persondetail">profile</a>
+            <a href="http://localhost:3000/connections">connections</a>
+            <a href="http://localhost:3000/notification">notifications</a>
+            <a href="http://localhost:3000/">log out</a>
+          </nav>}
+        {user.name}
+        <Button className="app-header__button-login" icon="login" onClick={this.showModal}>Log in</Button>
+        {this.renderRedirect()}
+        <Modal
+          title="Log in"
+          visible={visible}
+          onOk={this.handleLogIn}
+          okText="Log in"
+          confirmLoading={confirmLoading}
+          onCancel={this.handleCancel}
+        >
+
+        <NormalLoginForm />
+      </Modal>
+      </header>
+    );
+  }
 }
+
+export default withContext(Header);
