@@ -13,27 +13,27 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
       return (
         <Modal
           visible={visible}
-          title="Create a new collection"
-          okText="Create"
+          title='Create a new collection'
+          okText='Create'
           onCancel={onCancel}
           onOk={onCreate}
         >
-          <Form layout="vertical">
-            <Form.Item label="day:">
-              {getFieldDecorator('time')(<Input rows={4} type="text" />)}
+          <Form layout='vertical'>
+            <Form.Item label='day:'>
+              {getFieldDecorator('time')(<Input rows={4} type='text' />)}
             </Form.Item>
-            <Form.Item label="Title">
+            <Form.Item label='Title'>
               {getFieldDecorator('title', {
                 rules: [{ required: true, message: 'Please input the title of collection!' }]
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="description">
+            <Form.Item label='description'>
               {getFieldDecorator('description')(<TextArea rows={4} />)}
             </Form.Item>
-            <Form.Item label="Skill">{getFieldDecorator('skill')(<Input type="text" />)}</Form.Item>
-            <Form.Item label="Url">
+            <Form.Item label='Skill'>{getFieldDecorator('skill')(<Input type='text' />)}</Form.Item>
+            <Form.Item label='Url'>
               {getFieldDecorator('url', { initialValue: 'mysite' })(
-                <Input addonBefore="Http://" />
+                <Input addonBefore='Http://' />
               )}
             </Form.Item>
           </Form>
@@ -81,11 +81,11 @@ class AddPost extends React.Component {
     return (
       <div>
         <Button
-          type="primary"
+          type='primary'
           onClick={this.showModal}
-          style={{ marginLeft: 500, height: 'auto', whiteSpace: 'nowrap', fontSize: '18px' }}
+          style={{ height: 'auto', fontSize: '18px' }}
         >
-          <Icon type="plus-circle" style={{ fontSize: '38px' }} />
+          <Icon type='plus-circle' style={{ fontSize: '38px' }} />
           Add Time line
         </Button>
         <CollectionCreateForm
