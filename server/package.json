@@ -5,6 +5,6 @@
     "nodemon": "^1.19.4"
   },
   "scripts": {
-    "start": "json-server --watch db.json --port 3001"
+    "start": "node index.js"
   }
 }
