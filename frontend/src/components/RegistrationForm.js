@@ -131,34 +131,34 @@ class RegistrationForm extends React.Component {
 
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <Form.Item label='E-mail'>
+        <Form.Item label="E-mail">
           {getFieldDecorator('email', {
             rules: [
               {
                 type: 'email',
-                message: 'The input is not valid E-mail!'
+                message: 'The input is not valid E-mail!',
               },
               {
                 required: true,
-                message: 'Please input your E-mail!'
-              }
-            ]
+                message: 'Please input your E-mail!',
+              },
+            ],
           })(<Input />)}
         </Form.Item>
-        <Form.Item label='Password' hasFeedback>
+        <Form.Item label="Password" hasFeedback>
           {getFieldDecorator('password', {
             rules: [
               {
                 required: true,
-                message: 'Please input your password!'
+                message: 'Please input your password!',
               },
               {
-                validator: this.validateToNextPassword
-              }
-            ]
+                validator: this.validateToNextPassword,
+              },
+            ],
           })(<Input.Password />)}
         </Form.Item>
-        <Form.Item label='Confirm Password' hasFeedback>
+        <Form.Item label="Confirm Password" hasFeedback>
           {getFieldDecorator('confirm', {
             rules: [
               {
@@ -173,15 +173,15 @@ class RegistrationForm extends React.Component {
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           {getFieldDecorator('agreement', {
-            valuePropName: 'checked'
+            valuePropName: 'checked',
           })(
             <Checkbox>
-              I have read the <a href=''>agreement</a>
-            </Checkbox>
+              I have read the <a href="">agreement</a>
+            </Checkbox>,
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type='primary' htmlType='submit'>
+          <Button type="primary" htmlType="submit">
             Register
           </Button>
           <Button style={{ marginLeft: 8 }} onClick={this.handleCancel}>

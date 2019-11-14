@@ -14,8 +14,7 @@ class HorizontalLoginForm extends Component {
       redirect: false,
     };
   }
-  componentDidMount() {
-  }
+
   setRedirect = () => {
       this.setState({
         redirect: true
@@ -71,7 +70,7 @@ class HorizontalLoginForm extends Component {
             />
         </Form.Item>
         <Form.Item>
-        {this.renderRedirect()}
+          {this.renderRedirect()}
           <Button onClick={this.setRedirect} type="primary" htmlType="submit">
             Log in
           </Button>

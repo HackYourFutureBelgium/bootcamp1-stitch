@@ -143,6 +143,7 @@ display: block;
 footer {
   flex-shrink: 0;
   border-top: solid 1px #1890ff;
+  box-shadow: rgba(81, 81, 81, 0.2) 0px 1px 6px 3px;
   justify-content: center;
 }
 .app-footer__title {
