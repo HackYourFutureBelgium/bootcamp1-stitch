@@ -6,6 +6,7 @@ import PersonDetail from '../components/PersonDetail';
 import Main from '../components/Main';
 import Connection from '../components/Connection';
 import Notification from '../components/Notification';
+import BioForm from '../components/BioForm';
 
 
 export default class MyRoutes extends React.Component {
@@ -25,6 +26,7 @@ export default class MyRoutes extends React.Component {
         <Route exact path="/persondetail" component={PersonDetail} />
         <Route exact path="/connections" component={Connection} />
         <Route exact path="/notification" component={Notification} />
+        <Route exact path="/bioform" component={BioForm} />
         <Route path="*" component={NotFound} />
       </Switch>
     );
