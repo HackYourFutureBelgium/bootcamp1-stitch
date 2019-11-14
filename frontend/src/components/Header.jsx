@@ -2,35 +2,25 @@ import React, { Component } from 'react';
 import { Button, Modal } from 'antd';
 import NormalLoginForm from './NormalLoginForm';
 import { withContext } from '../Context';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import API from '../API.js';
+
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       ModalText: 'Content of the modal',
       visible: false,
-      confirmLoading: false,
-      redirect: false
+      confirmLoading: false
     };
   }
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    });
-  };
-
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/persondetail' />;
-    }
-  };
 
   showModal = () => {
     this.setState({
       visible: true
     });
   };
+
   handleLogIn = () => {
     this.setState({
       ModalText: 'The modal will be closed after two seconds',
@@ -45,8 +35,8 @@ class Header extends Component {
       API.login(email, password).then(user => {
         const { setAuthenticatedUser } = this.props;
         setAuthenticatedUser(user);
+        this.props.history.push('/persondetail');
       });
-      this.setRedirect();
     }, 2000);
   };
 
@@ -97,7 +87,6 @@ class Header extends Component {
         <Button className='app-header__button-login' icon='login' onClick={this.showModal}>
           Log in
         </Button>
-        {this.renderRedirect()}
         <Modal
           title='Log in'
           visible={visible}
@@ -113,4 +102,4 @@ class Header extends Component {
   }
 }
 
-export default withContext(Header);
+export default withRouter(withContext(Header));
