@@ -7,26 +7,26 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
-  super(props);
-  const user = localStorage.getItem('user');
-  if(user === null){
-    this.state = {
-      user: {
-        email: '',
-        name: ''
-      }
-    };
-  }else{
-    this.state = {
-      user: JSON.parse(user),
-    };
+    super(props);
+    const user = localStorage.getItem('user');
+    if (user === null){
+      this.state = {
+        user: {
+          email: '',
+          name: ''
+        }
+      };
+    } else {
+      this.state = {
+        user: JSON.parse(user),
+      };
+    }
   }
 
-}
-setAuthenticatedUser = user =>{
-  localStorage.setItem('user', JSON.stringify(user));
-  this.setState({ user });
-};
+  setAuthenticatedUser = user =>{
+    localStorage.setItem('user', JSON.stringify(user));
+    this.setState({ user });
+  };
 
   render() {
     const context = {

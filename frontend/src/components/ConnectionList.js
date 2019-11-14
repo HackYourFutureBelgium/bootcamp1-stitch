@@ -20,6 +20,21 @@ class ConnectionList extends Component {
           name: 'Alfi',
           role: 'Professional baker that also develops',
           id: 'alfi'
+        },
+        {
+          name: 'Jonathan',
+          role: 'Professional mapper',
+          id: 'jonathan'
+        },
+        {
+          name: 'Bert',
+          role: 'Recognition expert',
+          id: 'bert'
+        },
+        {
+          name: 'Maïté',
+          role: 'Bootcamp organizer',
+          id: 'maite'
         }
       ]
     };
@@ -49,7 +64,7 @@ class ConnectionList extends Component {
       return <ConnectionItem key={user.id} disconnect={this.removeConnection} connection={user} />;
     });
 
-    return <ul style={{listStyleType:'none'}}>{connectionItems}</ul>;
+    return <ul className="connections__list">{connectionItems}</ul>;
   }
 }
 export default ConnectionList;

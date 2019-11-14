@@ -1,40 +1,30 @@
 import React, { Component } from 'react';
-import {Button, Modal} from 'antd';
+import { Button, Modal } from 'antd';
 import NormalLoginForm from './NormalLoginForm';
 import { withContext } from '../Context';
-import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import API from '../API.js';
+
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       ModalText: 'Content of the modal',
       visible: false,
-      confirmLoading: false,
-      redirect: false,
+      confirmLoading: false
     };
-  }
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    })
-  }
-
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/persondetail' />
-    }
   }
 
   showModal = () => {
     this.setState({
-      visible: true,
+      visible: true
     });
   };
+
   handleLogIn = () => {
     this.setState({
       ModalText: 'The modal will be closed after two seconds',
-      confirmLoading: true,
+      confirmLoading: true
     });
     setTimeout(() => {
       this.setState({
@@ -45,65 +35,71 @@ class Header extends Component {
       API.login(email, password).then(user => {
         const { setAuthenticatedUser } = this.props;
         setAuthenticatedUser(user);
+        this.props.history.push('/persondetail');
       });
-      this.setRedirect();
     }, 2000);
   };
 
   handleCancel = () => {
     console.log('Clicked cancel button');
     this.setState({
-      visible: false,
+      visible: false
     });
   };
   showNavBar = () => {
     this.setState({
-      navBarVisible: !this.state.navBarVisible,
-
+      navBarVisible: !this.state.navBarVisible
     });
-  }
-  clickHandleSignIn = e =>{
+  };
+  clickHandleSignIn = e => {
     e.preventDefault();
     this.showLoginForm();
-  }
-  componentDidMount() {
-
-  }
-
+  };
 
   render() {
-    const { visible, confirmLoading, ModalText} = this.state;
-    const { user } =  this.props;
-    const navBarVisible = user.email === "";
+    const { visible, confirmLoading } = this.state;
+    const { user } = this.props;
+    const navBarVisible = user.email === '';
 
     return (
-      <header className="app-header">
-        <div className="app-header__box">
-          <img src="stitchlogo.png" alt="Stitch Logo" title="Stitch" height="85" width="85" />
-          <h1 className="app-header__title">Stitch</h1>
+      <header className='app-header'>
+        <div className='app-header__box'>
+          <img src='stitchlogo.png' alt='Stitch Logo' title='Stitch' height='85' width='85' />
+          <h1 className='app-header__title'>Stitch</h1>
         </div>
-        {!navBarVisible && <nav>
-            <Button href="http://localhost:3000/persondetail" type="link">Timeline</Button>
-            <Button href="http://localhost:3000/connections" type="link">Connections</Button>
-            <Button href="http://localhost:3000/notification" type="link">Notifications</Button>
-            <Button href="http://localhost:3000/" type="link">Log out</Button>
-          </nav>}
+        {!navBarVisible && (
+          <nav>
+            <Button href='http://localhost:3000/persondetail' type='link'>
+              Timeline
+            </Button>
+            <Button href='http://localhost:3000/connections' type='link'>
+              Connections
+            </Button>
+            <Button href='http://localhost:3000/notification' type='link'>
+              Notifications
+            </Button>
+            <Button href='http://localhost:3000/' type='link'>
+              Log out
+            </Button>
+          </nav>
+        )}
 
-        <Button className="app-header__button-login" icon="login" onClick={this.showModal}>Log in</Button>
-        {this.renderRedirect()}
+        <Button className='app-header__button-login' icon='login' onClick={this.showModal}>
+          Log in
+        </Button>
         <Modal
-          title="Log in"
+          title='Log in'
           visible={visible}
           onOk={this.handleLogIn}
-          okText="Log in"
+          okText='Log in'
           confirmLoading={confirmLoading}
           onCancel={this.handleCancel}
         >
-        <NormalLoginForm />
-      </Modal>
+          <NormalLoginForm />
+        </Modal>
       </header>
     );
   }
 }
 
-export default withContext(Header);
+export default withRouter(withContext(Header));

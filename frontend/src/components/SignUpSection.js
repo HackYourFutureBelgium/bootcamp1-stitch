@@ -37,7 +37,7 @@ class SignUpSection extends Component {
     if (loginVisible) {
       clicked = <HorizontalLoginForm toggleCancel={this.showLoginForm} />;
     } else {
-      clicked = <span className="signupSection__login">Already a Stitcher <a onClick={this.clickHandleSignIn} href="#">log in here</a></span>;
+      clicked = <span className="signupSection__login">Already a Stitcher <button className="button-link" onClick={this.clickHandleSignIn}>log in here</button></span>;
     }
     return (
       <section className="signupSection">

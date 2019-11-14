@@ -10,8 +10,8 @@ import BioForm from '../components/BioForm';
 
 
 export default class MyRoutes extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       users: []
     };
