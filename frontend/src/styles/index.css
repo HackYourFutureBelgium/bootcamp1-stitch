@@ -143,12 +143,10 @@ display: block;
 footer {
   flex-shrink: 0;
   border-top: solid 1px #1890ff;
-  box-shadow: rgba(81, 81, 81, 0.2) 0px 1px 6px 3px;
   justify-content: center;
 }
 .app-footer__title {
   font-family: 'Karla', Arial, Helvetica, sans-serif;
-  padding: 1rem 0;
   text-align: center;
   font-size: 2rem;
   color: #1890ff;
