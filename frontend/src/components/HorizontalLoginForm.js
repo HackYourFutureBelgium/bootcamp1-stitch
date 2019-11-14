@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Icon, Input, Button } from 'antd';
 import { withContext } from '../Context';
 import API from '../API.js';
+import { withRouter } from 'react-router-dom'
 
 class HorizontalLoginForm extends Component {
   constructor(props) {
@@ -12,7 +13,9 @@ class HorizontalLoginForm extends Component {
       password: ''
     };
   }
-  componentDidMount() {
+
+  redirectToProfile = () => {
+    this.props.history.push('/persondetail');
   }
 
   handleSubmit = e => {
@@ -24,6 +27,7 @@ class HorizontalLoginForm extends Component {
       setAuthenticatedUser(user);
     });
   };
+
   handleCancel = e =>{
     const { toggleCancel } = this.props;
     toggleCancel();
@@ -60,7 +64,7 @@ class HorizontalLoginForm extends Component {
             />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button onClick={this.redirectToProfile} type="primary" htmlType="submit">
             Log in
           </Button>
           <Button style={{ marginLeft: 8 }} onClick={this.handleCancel}>
@@ -72,4 +76,4 @@ class HorizontalLoginForm extends Component {
   }
 }
 
-export default withContext(HorizontalLoginForm);
+export default withRouter(withContext(HorizontalLoginForm));

@@ -88,6 +88,9 @@ a:hover {
   align-items: center;
   width: 80%;
 }
+.introduction-text {
+  width: 45%;
+}
 .introduction-text h1 {
   font-family: 'Karla', Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -101,7 +104,7 @@ a:hover {
   font-size: 1.6rem;
 }
 .introduction-img {
-  width: 100%;
+  width: 45%;
   height: auto;
 }
 .signupSection {
@@ -142,12 +145,11 @@ display: block;
 }
 footer {
   flex-shrink: 0;
-  box-shadow: rgba(81, 81, 81, 0.2) 0px 1px 6px 3px;
+  border-top: solid 1px #1890ff;
   justify-content: center;
 }
 .app-footer__title {
   font-family: 'Karla', Arial, Helvetica, sans-serif;
-  padding: 1rem 0;
   text-align: center;
   font-size: 2rem;
   color: #1890ff;
@@ -170,6 +172,9 @@ main {
   width: 80%;
   border-radius: 20px;
   margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .app-HowToGetStarted__title {
   font-family: 'Karla', Arial, Helvetica, sans-serif;
@@ -198,3 +203,48 @@ main {
 .app-HowToGetStarted__desc span {
   background-color: #bae7ff;
 }
+.connection-title {
+  font-family: 'Karla', Arial, Helvetica, sans-serif;
+  padding: 1rem 0;
+  text-align: center;
+  font-weight: bold;
+  color: #1890ff;
+}
+.notification-title {
+  font-family: 'Karla', Arial, Helvetica, sans-serif;
+  padding: 1rem 0;
+  text-align: center;
+  font-weight: bold;
+  color: #1890ff;
+}
+.notification-li {
+  font-family: 'Karla', Arial, Helvetica, sans-serif;
+  padding: 1rem 0;
+  text-align: left;
+  color: #002766;
+}
+
+.button-link {
+  color: #1890ff;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.connections__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.connections__list li {
+  margin-bottom: 5rem;
+  width: 400px;
+}
+
