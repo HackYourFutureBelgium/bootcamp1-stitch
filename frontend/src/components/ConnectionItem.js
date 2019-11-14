@@ -7,7 +7,7 @@ function ConnectionItem({ connection, disconnect }) {
 
   return (
     <li>
-      <Card style={{ width: 600, border: 'none' }}>
+      <Card style={{ width: 500, border: 'none' }}>
         <Avatar
           className='connection-avatar'
           size='large'
