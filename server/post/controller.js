@@ -8,7 +8,8 @@ controller.createPost = (req, res) => {
     title: req.body.title,
     url: req.body.url,
     desc: req.body.desc,
-    date: req.body.date,
+    dateOfPost: req.body.dateOfPost,
+    dateOfContent:req.body.dateOfContent,
     receiverid: req.body.receiverid,
     senderid: req.body.senderid
   };

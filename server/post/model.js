@@ -29,10 +29,18 @@ const postSchema  = mongoose.Schema(
 
     },
 
-    date:{
+    dateOfContent:{
 
         type: String,
         required: false
+
+    },
+
+    dateOfPost:{
+
+        type: Date,        
+        default: Date.now
+
 
     },
 
