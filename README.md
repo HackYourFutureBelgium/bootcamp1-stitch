@@ -1,7 +1,7 @@
 <div>
 
 <img src="https://2019.summerofcode.be/static/img/partners-svg/hackyourfuture.svg" height="200px"/>
-<img src="https://pbs.twimg.com/profile_images/1101803658893819904/xYuEus4g_400x400.png" height="200px" />
+
 </div>
 
 # bootcamp-project-stich-V1
