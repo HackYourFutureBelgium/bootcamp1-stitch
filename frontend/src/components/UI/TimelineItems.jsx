@@ -19,16 +19,19 @@ export class TimelineItems extends Component {
           <h1>{this.props.detail.time}</h1>
 
           <Card hoverable style={cardStyle} actions={[<Icon type='github' key='setting' />]}>
-            <p>{this.props.detail.url}</p>
+            <h1>{this.props.detail.title}</h1>
             <Meta
               avatar={
                 <Avatar src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' />
               }
-              title='Card title'
+              title=''
             />
-            <h3>{this.props.detail.skill}</h3>
-            <h2>{this.props.detail.title}</h2>
+            <h2>{this.props.detail.skill}</h2>
+
             <p>{this.props.detail.description}</p>
+            <a href='#!' target='_blanck'>
+              {this.props.detail.url}
+            </a>
           </Card>
 
           <Button
