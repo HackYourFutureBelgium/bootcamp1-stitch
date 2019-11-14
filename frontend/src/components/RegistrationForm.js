@@ -15,6 +15,7 @@ class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
     autoCompleteResult: [],
+    redirect:false
   };
 
   handleSubmit = e => {
@@ -57,10 +58,17 @@ class RegistrationForm extends React.Component {
     }
     this.setState({ autoCompleteResult });
   };
-  handleRegister = e =>{
-    console.log("clicked");
-    return (<Redirect to='/bioform' />);
-  };
+
+  setRegister = () => {
+    this.setState({
+      redirect:true 
+    })
+  }
+  handleRegister = () => {
+    if (this.state.redirect) {
+    return <Redirect to='/bioform'/>;
+  } 
+}
   handleCancel = e =>{
     const { toggleCancel } = this.props;
     toggleCancel();
@@ -156,7 +164,8 @@ class RegistrationForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit" onClick={this.handleRegister}>
+        {this.handleRegister()}
+          <Button type="primary" htmlType="submit" onClick={this.setRegister}>
             Register
           </Button>
           <Button style={{ marginLeft: 8 }} onClick={this.handleCancel}>
