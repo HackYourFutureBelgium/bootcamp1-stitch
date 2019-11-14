@@ -83,6 +83,7 @@ class AddPost extends React.Component {
         <Button
           type="primary"
           onClick={this.showModal}
+          size="large"
         >
         <Icon type="plus-circle" />
           Post a Stitch
