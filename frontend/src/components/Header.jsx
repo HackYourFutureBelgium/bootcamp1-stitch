@@ -5,7 +5,6 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Menu
-        theme="dark"
         mode="horizontal"
         defaultSelectedKeys={['1']}
         style={{ lineHeight: '64px' }}
