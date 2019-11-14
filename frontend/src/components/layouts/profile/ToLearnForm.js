@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
 import styles from '../../../styles/styles.css'
-import {Input, Card, Button, Row, Col} from 'antd';
+import {Input, Card, Button, Row, Col, Form} from 'antd';
 
 const {Search} = Input;
 
@@ -9,27 +9,29 @@ export default class ToLearnForm extends Component{
          super(props)
      }
 handleOnClick=(e) => {
- 
+   
+  const skill= new FormData(e.target);
 
-  console.log(e);
-  this.props.handleOnSubmit(e)
+  console.log(skill.get('skill'));
+  e.preventDefault()
+  this.props.handleOnSubmit(skill.get('skill'))
   
 
 }
      render(){
         
           return(
-            <div>
-            
-            
+            <form onSubmit={this.handleOnClick}>
+            <input id="skill" type="text" name="skill" />
+            <br/>
+            <input type="submit" value="Submit"/> 
+            <button>Delete</button>
+
+            </form>
           
-            <Search
-              placeholder="input search text"
-              enterButton="Add"
-              size="large"
-              onSearch={this.handleOnClick}
-            />
-          </div>
+          
+           
+          
              
         )
      }

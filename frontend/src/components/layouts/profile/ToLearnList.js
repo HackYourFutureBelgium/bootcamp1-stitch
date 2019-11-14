@@ -7,13 +7,11 @@ export default (props) => {
     console.log(props)
     const toLearn = props.toLearn.map(skill => <a href="#"> # {skill}</a> );
      return(
-         <>
-        <div>
-    <Card title="Topics I Want To Learn" extra={<a href="#">More</a>} style={{ width: 300 }}>
+      <>   
+        <Card style={{margin:10}}>
+          <h6>Topics I Want To Learn</h6>
       <p>{toLearn} </p>
-    </Card>
-   
-  </div>
-        </>
+        </Card>
+     </>
      )  
     }

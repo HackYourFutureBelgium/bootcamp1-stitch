@@ -20,7 +20,7 @@ export default class InvitationLinkGenerator extends Component{
               <>
               <Row style={{ width: 400 }}>
               <Col>
-              <Input placeholder= "Generate an URL"></Input>
+              <Input style={{width:200}} placeholder= "Generate an URL"></Input>
               
               </Col>
               

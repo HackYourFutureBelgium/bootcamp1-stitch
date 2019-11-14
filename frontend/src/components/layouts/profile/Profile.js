@@ -25,9 +25,10 @@ export default class Profile extends Component{
                 },
                 toLearn:[
                     "java",
-                ],
-                    "PHP",
+                    "python",
+                    "php",
                     "perl"
+                ],
                 id:{ 
                     name:"INSEE",
                     value:"1NNaN39071007 73"
@@ -35,16 +36,15 @@ export default class Profile extends Component{
                  picture:{ 
                     large:"https://randomuser.me/api/portraits/men/57.jpg",
                     medium:"https://randomuser.me/api/portraits/med/men/57.jpg",
-                    thumbnail:"https://randomuse
-                    "python",r.me/api/portraits/thumb/men/57.jpg"
+                    thumbnail:"https://randomuser.me/api/portraits/thumb/men/57.jpg"
                  },
-            } <s></s>
+            } 
 
             } 
         }
     
          handleOnSubmitTolearn =(skill)=>{
-            console.log(skill);
+            if (skill)
             this.setState({
                 toLearn: this.state.person.toLearn.push(skill)
             })
@@ -57,11 +57,9 @@ export default class Profile extends Component{
     <Row>
       
       <Col span={12}>  
-        <Card bordered={false}>
-            <UserDetails person= {this.state.person}/>
-            <ToLearnList toLearn= {this.state.person.toLearn}/>
-            <ToLearnForm handleOnSubmit={this.handleOnSubmitTolearn}/>
-            <InvitationLinkGenerator/>
+        <Card style={{width:400}}>
+            <UserDetails handleOnSubmitTolearn={this.handleOnSubmitTolearn} person= {this.state.person}/>
+            
         </Card>
       </Col>
       <Col span={12}>   

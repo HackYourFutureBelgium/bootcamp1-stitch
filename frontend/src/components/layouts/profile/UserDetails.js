@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, Icon, Avatar } from 'antd';
-
+import ToLearnList from './ToLearnList';
+import ToLearnForm from './ToLearnForm';
+import InvitationLinkGenerator from './InvitationLinkGenerator';
 const { Meta } = Card;
 const imgStyle= {
   height: '10rem',
@@ -9,12 +11,14 @@ const imgStyle= {
 
 }
 
-const UserDetails =  ({person}) => {
+const UserDetails =  ({person, handleOnSubmitTolearn}) => {
    console.log(person)
+   console.log(handleOnSubmitTolearn)
     return ( 
+     
         <>
          <Card
-    style={{ width: 200 }}
+    style={{ width: 300 }}
     cover={
       <img
         alt="example"
@@ -30,10 +34,12 @@ const UserDetails =  ({person}) => {
   >
     <Meta
       // avatar={<Avatar src={person.picture.thumbnail} />}
-      title= {<h4>{person.name.first} {person.name.first}</h4>}
+      title= {<h5>{person.name.first} {person.name.first}</h5>}
      
-    /> 
-    <p>About: {person.gender}</p>  
+    />      
+            <ToLearnList  toLearn= {person.toLearn}/>
+            <ToLearnForm handleOnSubmit={handleOnSubmitTolearn}/>
+            <InvitationLinkGenerator/> 
   </Card>,
              
           </>
