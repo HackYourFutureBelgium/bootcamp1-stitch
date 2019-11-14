@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Select, Checkbox, Button, AutoComplete } from 'antd';
+import { withRouter } from 'react-router-dom';
 import { withContext } from '../Context';
 
 const { Option } = Select;
@@ -18,6 +19,7 @@ class RegistrationForm extends React.Component {
         console.log('Received values of form: ', values);
       }
     });
+    this.props.history.push('/bioform')
   };
 
   handleConfirmBlur = e => {
@@ -148,8 +150,7 @@ class RegistrationForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-        {this.handleRegister()}
-          <Button type="primary" htmlType="submit" onClick={this.setRegister}>
+          <Button type="primary" htmlType="submit" onClick={this.handleSubmit}>
             Register
           </Button>
           <Button style={{ marginLeft: 8 }} onClick={this.handleCancel}>
@@ -161,4 +162,4 @@ class RegistrationForm extends React.Component {
   }
 }
 
-export default withContext(Form.create({ name: 'register' })(RegistrationForm));
+export default withRouter(withContext(Form.create({ name: 'register' })(RegistrationForm)));
