@@ -6,8 +6,8 @@ function ConnectionItem({ connection, disconnect }) {
   const { name, role, id } = connection;
 
   return (
-    <Card style={{ width: 600, border: 'none' }}>
-      <div>
+    <li>
+      <Card style={{ width: 600, border: 'none' }}>
         <Avatar
           className='connection-avatar'
           size='large'
@@ -25,8 +25,8 @@ function ConnectionItem({ connection, disconnect }) {
         <Button style={{ color: '#1890ff' }} onClick={() => disconnect(id)}>
           Disconnect
         </Button>
-      </div>
     </Card>
+    </li>
   );
 }
 
