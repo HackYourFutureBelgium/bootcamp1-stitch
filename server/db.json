@@ -2,15 +2,15 @@
   "posts": [
     {
       "skills": "js",
-      "time": "14-11-2019",
-      "title": "React",
+      "time": "7-7-2018",
+      "title": "courses",
       "url": "https://www.facebook.com",
       "description": "he leap into ublishing software like Aldus PageMaker including versions of Lorem Ipsum."
     },
     {
-      "skills": "js",
+      "skills": "Angular",
       "time": "14-11-2019",
-      "title": "React",
+      "title": "Conference",
       "url": "https://www.youtube.com/",
       "description": "he leap into ublishing software like Aldus PageMaker including versions of Lorem Ipsum."
     }
