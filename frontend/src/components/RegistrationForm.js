@@ -3,8 +3,6 @@ import { Form, Input, Checkbox, Button, AutoComplete } from 'antd';
 import { withContext } from '../Context';
 
 const AutoCompleteOption = AutoComplete.Option;
-
-
 class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
