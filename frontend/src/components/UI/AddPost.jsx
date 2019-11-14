@@ -83,10 +83,9 @@ class AddPost extends React.Component {
         <Button
           type="primary"
           onClick={this.showModal}
-          style={{ marginLeft: 500, height: 'auto', whiteSpace: 'nowrap', fontSize: '18px' }}
         >
-          <Icon type="plus-circle" style={{ fontSize: '38px' }} />
-          Add Time line
+        <Icon type="plus-circle" />
+          Post a Stitch
         </Button>
         <CollectionCreateForm
           wrappedComponentRef={this.saveFormRef}
