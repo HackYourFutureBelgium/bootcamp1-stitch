@@ -2,56 +2,15 @@ import React from 'react';
 import {
   Form,
   Input,
-  Tooltip,
-  Icon,
-  Cascader,
   Select,
-  Row,
-  Col,
   Checkbox,
   Button,
   AutoComplete,
 } from 'antd';
 import { withContext } from '../Context';
-
+import { Redirect } from 'react-router-dom'
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
-
-const residences = [
-  {
-    value: 'zhejiang',
-    label: 'Zhejiang',
-    children: [
-      {
-        value: 'hangzhou',
-        label: 'Hangzhou',
-        children: [
-          {
-            value: 'xihu',
-            label: 'West Lake',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: 'jiangsu',
-    label: 'Jiangsu',
-    children: [
-      {
-        value: 'nanjing',
-        label: 'Nanjing',
-        children: [
-          {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-          },
-        ],
-      },
-    ],
-  },
-];
-
 class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
@@ -97,6 +56,10 @@ class RegistrationForm extends React.Component {
       autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
     }
     this.setState({ autoCompleteResult });
+  };
+  handleRegister = e =>{
+    console.log("clicked");
+    return (<Redirect to='/bioform' />);
   };
   handleCancel = e =>{
     const { toggleCancel } = this.props;
@@ -193,7 +156,7 @@ class RegistrationForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" onClick={this.handleRegister}>
             Register
           </Button>
           <Button style={{ marginLeft: 8 }} onClick={this.handleCancel}>
