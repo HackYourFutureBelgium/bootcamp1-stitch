@@ -45,7 +45,6 @@ class SignUpSection extends Component {
         {!registrationVisible && <Button className="app-header__button-signup" onClick={this.clickHandleSignup} type="primary" size="large">Sign up</Button>}
         {registrationVisible && <RegistrationForm toggleCancel = {this.showSignupForm}/>}
         {clicked}
-
       </section>
     );
   }

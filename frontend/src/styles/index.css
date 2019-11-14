@@ -101,7 +101,7 @@ a:hover {
   font-size: 1.6rem;
 }
 .introduction-img {
-  width: 100%;
+  width: 60%;
   height: auto;
 }
 .signupSection {
@@ -142,7 +142,7 @@ display: block;
 }
 footer {
   flex-shrink: 0;
-  box-shadow: rgba(81, 81, 81, 0.2) 0px 1px 6px 3px;
+  border-top: solid 1px #1890ff;
   justify-content: center;
 }
 .app-footer__title {

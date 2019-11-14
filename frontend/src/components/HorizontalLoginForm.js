@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Icon, Input, Button } from 'antd';
 import { withContext } from '../Context';
 import API from '../API.js';
+import { Redirect } from 'react-router-dom'
 
 class HorizontalLoginForm extends Component {
   constructor(props) {
@@ -9,12 +10,22 @@ class HorizontalLoginForm extends Component {
     this.state = {
       visible: this.props.toggleCancel,
       email: '',
-      password: ''
+      password: '',
+      redirect: false,
     };
   }
   componentDidMount() {
   }
-
+  setRedirect = () => {
+      this.setState({
+        redirect: true
+      })
+    }
+    renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/persondetail' />
+    }
+  }
   handleSubmit = e => {
     e.preventDefault();
 
@@ -60,7 +71,8 @@ class HorizontalLoginForm extends Component {
             />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+        {this.renderRedirect()}
+          <Button onClick={this.setRedirect} type="primary" htmlType="submit">
             Log in
           </Button>
           <Button style={{ marginLeft: 8 }} onClick={this.handleCancel}>
