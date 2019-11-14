@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import BioFormList from './BioFormList';
 
 class BioForm extends Component {
-  constructor() {
-    super();
-    this.state = {
-    };
-  }
   render() {
     return (
       <div>

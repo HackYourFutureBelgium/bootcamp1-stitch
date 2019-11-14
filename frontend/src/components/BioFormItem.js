@@ -6,9 +6,9 @@ import { Button } from 'antd';
 
 const {TextArea} = Input;
 class BioFormItem extends React.Component {
-    constructor() {
-        super();
-        this.state = { 
+    constructor(props) {
+        super(props);
+        this.state = {
             firstName: '',
             lastName: '',
             email: '',
@@ -23,64 +23,64 @@ class BioFormItem extends React.Component {
         })
 
     }
-    
+
     handleSubmit =(event) => {
         event.preventDefault();
         console.log(event);
     }
     render() {
-        return( 
+        return(
            <div>
                    <Card style={{ width: 600, border: 'none'}}>
                <form style={{fontSize:'16px'}}>
-                <Input 
-                style= {{margin:'10px 0px'}}
-                type='text' 
-                name='firstName'
-                value={this.state.firstName} 
-                placeholder='First Name' 
-                onChange={this.handleInputChange}
-                />
-                <br />
-                <Input 
+                <Input
                 style= {{margin:'10px 0px'}}
                 type='text'
-                name='lastName' 
-                value={this.state.lastName} 
-                placeholder='Last Name' 
+                name='firstName'
+                value={this.state.firstName}
+                placeholder='First Name'
                 onChange={this.handleInputChange}
                 />
                 <br />
-
-                <Input 
+                <Input
                 style= {{margin:'10px 0px'}}
-                type='email' 
-                name='email' 
-                value={this.state.email} 
-                placeholder='Email' 
+                type='text'
+                name='lastName'
+                value={this.state.lastName}
+                placeholder='Last Name'
                 onChange={this.handleInputChange}
                 />
                 <br />
 
-                
+                <Input
+                style= {{margin:'10px 0px'}}
+                type='email'
+                name='email'
+                value={this.state.email}
+                placeholder='Email'
+                onChange={this.handleInputChange}
+                />
+                <br />
+
+
                 <Avatar style= {{margin:'10px 0px'}}/>
                 <br />
 
-                <Input 
+                <Input
                 style= {{margin:'10px 0px'}}
-                type='text' 
-                name='status' 
-                value={this.state.status} 
-                placeholder='Status' 
+                type='text'
+                name='status'
+                value={this.state.status}
+                placeholder='Status'
                 onChange={this.handleInputChange}
                 />
                 <br />
 
-                <TextArea rows={4} 
+                <TextArea rows={4}
                 style= {{margin:'10px 0px'}}
-                name='about' 
-                value={this.state.about} 
-                placeholder='About you' 
+                name='about'
+                value={this.state.about}
+                placeholder='About you'
                 onChange={this.handleInputChange}
                 />
                 <br />

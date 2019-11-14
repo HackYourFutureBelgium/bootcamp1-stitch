@@ -65,7 +65,6 @@ class Header extends Component {
     e.preventDefault();
     this.showLoginForm();
   };
-  componentDidMount() {}
 
   render() {
     const { visible, confirmLoading } = this.state;

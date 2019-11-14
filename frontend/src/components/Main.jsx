@@ -4,17 +4,6 @@ import HowToGetStarted from './HowToGetStarted';
 import ProfileFinder from './ProfileFinder';
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  componentDidMount() {
-
-  }
-
-
   render() {
     return (
       <main className="content">

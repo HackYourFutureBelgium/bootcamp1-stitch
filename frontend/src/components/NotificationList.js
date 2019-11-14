@@ -3,8 +3,8 @@ import ConnectionRequestItem from './ConnectionRequestItem';
 import StitchRequestItem from './StitchRequestItem'
 
 class NotificationList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notifications: [
         {
@@ -31,20 +31,13 @@ class NotificationList extends Component {
           id: 'john'
         }
       ]
-      
+
     };
     this.declineNotification = this.declineNotification.bind(this);
     this.declineStitchNotification = this.declineStitchNotification.bind(this);
     this.acceptNotification = this.acceptNotification.bind(this);
     this.acceptStitchNotification = this.acceptStitchNotification.bind(this);
 
-
-  }
-
-  componentDidMount(){
-
-  }
-  componentDidUpdate() {
 
   }
 
@@ -82,11 +75,11 @@ class NotificationList extends Component {
     })
   }
   render() {
-    
+
     const notificationsItems = this.state.notifications.map(user => {
       return<ConnectionRequestItem key={user.id} accept={this.acceptNotification} decline={this.declineNotification} notification= {user} />;
     });
-  
+
     const stitchNotificationItems = this.state.stitchNotifications.map(user => {
       return<StitchRequestItem key ={user.id} accept={this.acceptStitchNotification} decline={this.declineStitchNotification} stitchNotification={user} />
     })

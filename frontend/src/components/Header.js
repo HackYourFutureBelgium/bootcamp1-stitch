@@ -35,10 +35,6 @@ class Header extends Component {
       visible: false,
     });
   };
-  componentDidMount() {
-
-  }
-
 
   render() {
     const { visible, confirmLoading, ModalText } = this.state;
