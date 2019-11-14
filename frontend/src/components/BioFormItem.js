@@ -1,7 +1,7 @@
 import React from 'react'
 import Avatar from './Upload'
-import { Input, Card } from 'antd';
-import { Button } from 'antd';
+import { Input, Card, Button } from 'antd';
+import { Redirect } from 'react-router-dom'
 
 
 const {TextArea} = Input;
@@ -13,7 +13,8 @@ class BioFormItem extends React.Component {
             lastName: '',
             email: '',
             status: '',
-            about: ''
+            about: '',
+            redirect: false
         }
         this.handleInputChange= this.handleInputChange.bind(this)
     }
@@ -23,10 +24,15 @@ class BioFormItem extends React.Component {
         })
 
     }
-    
-    handleSubmit =(event) => {
-        event.preventDefault();
-        console.log(event);
+    setSubmit = () =>{
+        this.setState({
+            redirect: true
+        })
+    }
+    handleSubmit =() => {
+        if (this.state.redirect) {
+            return <Redirect to='/persondetail'/>;
+          }         
     }
     render() {
         return( 
@@ -84,8 +90,8 @@ class BioFormItem extends React.Component {
                 onChange={this.handleInputChange}
                 />
                 <br />
-
-                <Button onClick={this.handleSubmit} type='primary'>Submit</Button>
+                {this.handleSubmit()}
+                <Button onClick={this.setSubmit} type='primary'>Submit</Button>
             </form>
             </Card>
              </div>
