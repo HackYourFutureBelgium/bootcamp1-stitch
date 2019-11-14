@@ -7,7 +7,7 @@
 # bootcamp-project-stich-V1
 In this project: we are using YARN.
 
-Build by Hack Your Future Belgium students Alfi, Abdulsalam, Sena, Nihan, Manju and <a href="https://github.com/TamarAsashvili">Tamar Asashvili</a> during the Bootcamp
+Build by Hack Your Future Belgium students <a href="https://github.com/AlfiYusrina"> Alfi </a>, <a href="https://github.com/abdulsalamalmahdi"> Abdulsalam </a>, <a href="https://github.com/msenaavci"> Sena </a>, <a href="https://github.com/Nihan2019"> Nihan </a>, <a href="https://github.com/prabhamanju"> Manju </a> and <a href="https://github.com/TamarAsashvili">Tamar Asashvili</a> during The Bootcamp
 
 
 
