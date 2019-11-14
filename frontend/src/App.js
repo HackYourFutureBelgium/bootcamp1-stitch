@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
+import Context from './Context';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: {
+        email: '',
+        name: ''
+      }
     };
   }
 
@@ -14,13 +19,22 @@ class App extends Component {
 
   }
 
+  setAuthenticatedUser = user =>{
+    this.setState({ user });
+  };
 
   render() {
+    const context = {
+      user: this.state.user,
+      setAuthenticatedUser: this.setAuthenticatedUser
+    }
     return (
       <div className="app">
-        <Header />
-        <Main />
-        <Footer />
+        <Context.Provider value={context}>
+          <Header />
+          <Main />
+          <Footer />
+        </Context.Provider>
       </div>
     );
   }
