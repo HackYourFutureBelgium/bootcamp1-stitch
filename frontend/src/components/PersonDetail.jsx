@@ -53,12 +53,6 @@ class PersonDetail extends React.Component {
           <Col span={7}>
             <CardProf />
           </Col>
-          <Col span={7}>
-            <Button>
-              <Icon type='search' />
-              Filter by skils
-            </Button>
-          </Col>
           <Col span={10} style={{ padding: '40px' }}>
             <AddPost onSubmit={this.handleSubmit} />
             <Timeline1 details={this.state.posts} delTodo={this.delTodo} />
@@ -70,4 +64,3 @@ class PersonDetail extends React.Component {
 }
 
 export default PersonDetail;
-
