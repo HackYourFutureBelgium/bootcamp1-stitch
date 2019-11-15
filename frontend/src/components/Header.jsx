@@ -74,16 +74,16 @@ class Header extends Component {
         </div>
         {!navBarVisible && (
           <nav>
-            <Button className="header-btn" href='http://localhost:3000/persondetail' type='link'>
+            <Button className="header-btn" style={{ color: '#002766'}} href='http://localhost:3000/persondetail' type='link'>
               Timeline
             </Button>
-            <Button className="header-btn" href='http://localhost:3000/connections' type='link'>
+            <Button className="header-btn" style={{ color: '#002766'}} href='http://localhost:3000/connections' type='link'>
               Connections
             </Button>
-            <Button className="header-btn" href='http://localhost:3000/notification' type='link'>
+            <Button className="header-btn" style={{ color: '#002766'}} href='http://localhost:3000/notification' type='link'>
               Notifications
             </Button>
-            <Button className="header-btn" href='http://localhost:3000/' onClick={this.clickHandleLogOut} type='link'>
+            <Button className="header-btn" style={{ color: '#002766'}} href='http://localhost:3000/' onClick={this.clickHandleLogOut} type='link'>
               Log out
             </Button>
           </nav>
