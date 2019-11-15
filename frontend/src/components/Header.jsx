@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal } from 'antd';
+import { Button, Modal} from 'antd';
 import NormalLoginForm from './NormalLoginForm';
 import { withContext } from '../Context';
 import { withRouter } from 'react-router-dom';
@@ -66,7 +66,6 @@ class Header extends Component {
     const { visible, confirmLoading } = this.state;
     const { user } = this.props;
     const navBarVisible = user.email === '';
-
     return (
       <header className='app-header'>
         <div className='app-header__box'>
@@ -75,16 +74,16 @@ class Header extends Component {
         </div>
         {!navBarVisible && (
           <nav>
-            <Button href='http://localhost:3000/persondetail' type='link'>
+            <Button className="header-btn" style={{ color: '#002766'}} href='http://localhost:3000/persondetail' type='link'>
               Timeline
             </Button>
-            <Button href='http://localhost:3000/connections' type='link'>
+            <Button className="header-btn" style={{ color: '#002766'}} href='http://localhost:3000/connections' type='link'>
               Connections
             </Button>
-            <Button href='http://localhost:3000/notification' type='link'>
+            <Button className="header-btn" style={{ color: '#002766'}} href='http://localhost:3000/notification' type='link'>
               Notifications
             </Button>
-            <Button href='http://localhost:3000/' onClick={this.clickHandleLogOut} type='link'>
+            <Button className="header-btn" style={{ color: '#002766'}} href='http://localhost:3000/' onClick={this.clickHandleLogOut} type='link'>
               Log out
             </Button>
           </nav>
