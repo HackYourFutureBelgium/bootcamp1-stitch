@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal } from 'antd';
+import { Button, Modal, Tabs } from 'antd';
 import NormalLoginForm from './NormalLoginForm';
 import { withContext } from '../Context';
 import { withRouter } from 'react-router-dom';
@@ -66,7 +66,7 @@ class Header extends Component {
     const { visible, confirmLoading } = this.state;
     const { user } = this.props;
     const navBarVisible = user.email === '';
-
+    const { TabPane } = Tabs;
     return (
       <header className='app-header'>
         <div className='app-header__box'>
@@ -75,16 +75,27 @@ class Header extends Component {
         </div>
         {!navBarVisible && (
           <nav>
-            <Button href='http://localhost:3000/persondetail' type='link'>
+          <Tabs defaultActiveKey="1" >
+    <TabPane tab="Timeline" key="1">
+      <Button className="header-btn" href='http://localhost:3000/persondetail' type='link'/>
+    </TabPane>
+    <TabPane tab="Tab 2" key="2">
+      Content of Tab Pane 2
+    </TabPane>
+    <TabPane tab="Tab 3" key="3">
+      Content of Tab Pane 3
+    </TabPane>
+  </Tabs>
+            <Button className="header-btn" href='http://localhost:3000/persondetail' type='link'>
               Timeline
             </Button>
-            <Button href='http://localhost:3000/connections' type='link'>
+            <Button className="header-btn" href='http://localhost:3000/connections' type='link'>
               Connections
             </Button>
-            <Button href='http://localhost:3000/notification' type='link'>
+            <Button className="header-btn" href='http://localhost:3000/notification' type='link'>
               Notifications
             </Button>
-            <Button href='http://localhost:3000/' onClick={this.clickHandleLogOut} type='link'>
+            <Button className="header-btn" href='http://localhost:3000/' onClick={this.clickHandleLogOut} type='link'>
               Log out
             </Button>
           </nav>
