@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Icon, Avatar } from 'antd';
 import ToLearnList from './ToLearnList';
 import ToLearnForm from './ToLearnForm';
@@ -31,6 +31,12 @@ const UserDetails = ({ handleOnSubmitTolearn }) => {
     }
   };
 
+  const [skillsToLearn, setSkillsToLearn] = useState(person.toLearn);
+
+  const addSkillToLearn = (newSkill) => {
+    setSkillsToLearn([...skillsToLearn, newSkill]);
+  };
+
   return (
     <>
       <Card
@@ -50,8 +56,8 @@ const UserDetails = ({ handleOnSubmitTolearn }) => {
             </h5>
           }
         />
-        <ToLearnList toLearn={person.toLearn} />
-        <ToLearnForm handleOnSubmit={handleOnSubmitTolearn} />
+        <ToLearnList toLearn={skillsToLearn} />
+        <ToLearnForm handleOnSubmit={addSkillToLearn} />
         <InvitationLinkGenerator />
       </Card>
       ,
