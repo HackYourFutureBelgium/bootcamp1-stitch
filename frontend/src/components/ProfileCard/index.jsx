@@ -15,9 +15,9 @@ const imgStyle = {
 const UserDetails = ({ handleOnSubmitTolearn }) => {
   const person = {
     name: {
-      title: 'Mr',
-      first: 'Matéo',
-      last: 'Renaud'
+      title: 'Ms',
+      first: 'Alfi',
+      last: 'Yusrina'
     },
     toLearn: ['java', 'python', 'php', 'perl'],
     id: {
@@ -41,7 +41,7 @@ const UserDetails = ({ handleOnSubmitTolearn }) => {
     <>
       <Card
         style={{ width: 300 }}
-        cover={<img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+        cover={<img src="https://media.licdn.com/dms/image/C5603AQHUsGRBcCxapg/profile-displayphoto-shrink_200_200/0?e=1579132800&v=beta&t=G8F_Ivhl-nCB127iy-SYU7EFhfgntuPtLaf-EQWPw3w" />}
         // actions={[
         //   <Icon type="setting" key="setting" />,
         //   <Icon type="edit" key="edit" />,
