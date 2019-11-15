@@ -13,13 +13,13 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
       return (
         <Modal
           visible={visible}
-          title="Create a new collection"
+          title="Create a post"
           okText="Create"
           onCancel={onCancel}
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <Form.Item label="day:">
+            <Form.Item label="Day:">
               {getFieldDecorator('time')(<Input rows={4} type="text" />)}
             </Form.Item>
             <Form.Item label="Title">
@@ -27,7 +27,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
                 rules: [{ required: true, message: 'Please input the title of collection!' }]
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="description">
+            <Form.Item label="Description">
               {getFieldDecorator('description')(<TextArea rows={4} />)}
             </Form.Item>
             <Form.Item label="Skill">{getFieldDecorator('skill')(<Input type="text" />)}</Form.Item>
