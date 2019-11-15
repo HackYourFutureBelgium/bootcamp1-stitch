@@ -21,8 +21,6 @@ export default class MyRoutes extends React.Component {
     return (
       <Switch>
         <Route exact path="/" component={Main} />
-        {/*<Route exact path="/profile" component={Profile} />
-        <Route exact path="/profile/:id" component={Profile} />*/}
         <Route exact path="/persondetail" component={PersonDetail} />
         <Route exact path="/connections" component={Connection} />
         <Route exact path="/notification" component={Notification} />
