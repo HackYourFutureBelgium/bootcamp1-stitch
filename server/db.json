@@ -1,19 +1,18 @@
 {
-"users": [
-  {
-    id: 1,
-    "name":"eman"
-  },
-  {
-    id: 2,
-    "name":"eman"
-  }
-],
-"connections": [
-  {
-    "id": 1,
-    "user1": 1
-    "user2": 2
-  }
-]
+  "posts": [
+    {
+      "skills": "js",
+      "time": "7-7-2018",
+      "title": "Hack your future",
+      "url": "https://hackyourfuture.be/",
+      "description": "he leap into ublishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    {
+      "skills": "Angular",
+      "time": "14-11-2019",
+      "title": "Conference",
+      "url": "https://www.facebook.com/HackYFutureBE/",
+      "description": "he leap into ublishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    }
+  ]
 }

@@ -62,11 +62,7 @@ export default class Profile extends Component{
             
         </Card>
       </Col>
-      <Col span={12}>   
-          <Card bordered={false}>
-            <Timeline person= {this.state.person}/>
-          </Card>
-      </Col>
+      
     </Row>
            
     

@@ -7,7 +7,7 @@ const { MONGODB_URL } = process.env;
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect("mongodb+srv://manju:prabha@cluster0-ipxws.gcp.mongodb.net/test?retryWrites=true&w=majority", { useFindAndModify: false, useNewUrlParser: true, useCreateIndex: false, useUnifiedTopology: true })
+  .connect(MONGODB_URL, { useFindAndModify: false, useNewUrlParser: true, useCreateIndex: false, useUnifiedTopology: true })
   .then(() => { console.log('Database connection established'); })
   .catch((err) => {
     console.error(`Database error, exiting. Stack trace:\n${err}`);

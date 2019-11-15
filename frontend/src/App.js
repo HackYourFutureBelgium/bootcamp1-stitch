@@ -1,49 +1,49 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom'
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
-import Notifications from './components/layouts/headers/Notifications';
-import Profile from './components/layouts/profile/Profile';
-import ApiClient from './ApiClient';
-import RegistrationForm from './components/auth/RegistrationForm';
-import LogInForm from './components/auth/LogInForm';
+import Routes from './routes/routes';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Context from './Context';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
     super(props);
-     this.state = {
-      loggedInStatus:true,
-      user:{}
+    const user = localStorage.getItem('user');
+    if (user === null){
+      this.state = {
+        user: {
+          email: '',
+          name: ''
+        }
+      };
+    } else {
+      this.state = {
+        user: JSON.parse(user),
+      };
     }
   }
-   
-   
-  componentDidMount = async () => {
-      
-// console.log(this.state.results)
-  }
-         
+
+  setAuthenticatedUser = user =>{
+    localStorage.setItem('user', JSON.stringify(user));
+    this.setState({ user });
+  };
+
   render() {
+    const context = {
+     user: this.state.user,
+     setAuthenticatedUser: this.setAuthenticatedUser
+   }
     return (
-      <BrowserRouter>
         <div className="App">
-          <Header {...this.props} loggedInStatus={this.state.loggedInStatus}/>
-          <Switch>
-            <Route exact path='/' component={Main}/>
-            <Route exact path='/notifications' component={Notifications}/>
-            <Route exact path='/profile' render = {props => (
-                          <Profile  {...this.props} loggedInStatus={this.state.loggedInStatus} /> 
-              )}
-            />
-            <Route exact path='/signup' component={RegistrationForm}/>
-            <Route exact path='/login' component={LogInForm}/>
-          </Switch>
-          <Footer/>
+          <Context.Provider value={context}>
+            <Router>
+              <Header />
+              <Routes />
+              <Footer />
+            </Router>
+          </Context.Provider>
         </div>
-      </BrowserRouter>
     );
-   
   }
 }
 
