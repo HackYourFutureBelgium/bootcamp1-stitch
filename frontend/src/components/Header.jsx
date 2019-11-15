@@ -56,6 +56,12 @@ class Header extends Component {
     this.showLoginForm();
   };
 
+  clickHandleLogOut = e =>{
+    //removing the localStorage
+    //localStorage.removeItem(user);
+    console.log("clicked");
+  }
+
   render() {
     const { visible, confirmLoading } = this.state;
     const { user } = this.props;
@@ -78,7 +84,7 @@ class Header extends Component {
             <Button href='http://localhost:3000/notification' type='link'>
               Notifications
             </Button>
-            <Button href='http://localhost:3000/' type='link'>
+            <Button href='http://localhost:3000/' onClick={this.clickHandleLogOut} type='link'>
               Log out
             </Button>
           </nav>
