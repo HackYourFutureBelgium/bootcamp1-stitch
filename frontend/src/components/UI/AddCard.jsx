@@ -2,14 +2,14 @@ import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 import React from 'react';
 import { Timeline } from 'antd';
-import CardProf from './CardProf';
+import ProfileCard from '../ProfileCard';
 
 const CommentList = ({ comments }) => (
   <List
     dataSource={comments}
     header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
     itemLayout="horizontal"
-    renderItem={props => <Comment {...props} />}
+    renderItem={(props) => <Comment {...props} />}
   />
 );
 
@@ -61,7 +61,7 @@ class AddCard extends React.Component {
                   <p>{this.state.value}</p>
                   <p>{this.state.skill}</p>
 
-                  {<CardProf />}
+                  <ProfileCard />
                   <img
                     src="https://picsum.photos/id/7/200/200"
                     alt="Smiley face"
@@ -83,7 +83,7 @@ class AddCard extends React.Component {
     }, 1000);
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
       value: e.target.value,
       skill: e.target.skill

@@ -61,11 +61,11 @@ a:hover {
   align-items: center;
   box-shadow: rgba(81, 81, 81, 0.2) 0px 0px 3px 1px;
 }
-.header-btn{
-  color:red;
+.header-btn {
+  color: red;
   font-size: 2rem;
 }
-.app-header__title{
+.app-header__title {
   color: #1890ff;
   font-family: 'Istok Web', sans-serif;
   text-transform: uppercase;
@@ -98,11 +98,9 @@ a:hover {
 .introduction-text h1 {
   font-family: 'Karla', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color:#1890ff;
-
-
+  color: #1890ff;
 }
-.introduction-text p{
+.introduction-text p {
   font-family: 'Istok Web', sans-serif;
   color: #002766;
   font-size: 1.6rem;
@@ -116,17 +114,17 @@ a:hover {
   flex-direction: column;
   margin: 30px;
 }
-.signupSection__title{
+.signupSection__title {
   font-family: 'Karla', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color:#1890ff;
+  color: #1890ff;
 }
 .signupSection__login {
-display: block;
+  display: block;
 }
 .app-header__box {
   display: flex;
-  align-items:center;
+  align-items: center;
   padding: 45px 0;
 }
 .app-profileFinder {
@@ -135,17 +133,16 @@ display: block;
   align-items: center;
   margin-bottom: 30px;
 }
-.app-profileFinder__title{
+.app-profileFinder__title {
   font-family: 'Karla', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color:#1890ff;
-
+  color: #1890ff;
 }
-.app-profileFinder p{
+.app-profileFinder p {
   margin-top: 10px;
-    font-size: 1.6rem;
-    color: #002766;
-    font-family: 'Istok Web', sans-serif;
+  font-size: 1.6rem;
+  color: #002766;
+  font-family: 'Istok Web', sans-serif;
 }
 footer {
   flex-shrink: 0;
@@ -186,7 +183,6 @@ main {
   text-align: center;
   font-weight: bold;
   color: #1890ff;
-
 }
 .app-HowToGetStarted__list {
   display: flex;
@@ -250,4 +246,17 @@ main {
 .connections__list li {
   margin-bottom: 5rem;
   width: 400px;
+}
+
+.profile-card__skills-form {
+  margin: 20px 0;
+}
+
+h5.profile-card__name {
+  font-size: 2.4rem;
+  font-weight: bolder;
+}
+
+h6.profile-card__learnings {
+  font-size: 1.6rem;
 }

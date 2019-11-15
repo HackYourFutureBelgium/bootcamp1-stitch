@@ -2,7 +2,7 @@ import React from 'react';
 import Timeline1 from '../components/UI/Timeline';
 import { Row, Col } from 'antd';
 import AddPost from './UI/AddPost';
-import CardProf from './UI/CardProf';
+import ProfileCard from './ProfileCard';
 
 class PersonDetail extends React.Component {
   constructor(props) {
@@ -16,13 +16,13 @@ class PersonDetail extends React.Component {
 
   componentDidMount() {
     fetch('http://localhost:3001/posts', { headers: { 'Content-Type': 'application/json' } })
-      .then(r => r.json())
-      .then(posts => {
+      .then((r) => r.json())
+      .then((posts) => {
         this.setState({ posts, postsAreLoading: false });
       });
   }
 
-  handleSubmit = async value => {
+  handleSubmit = async (value) => {
     const { posts } = this.state;
     const { skill, title, description, url, time } = value;
     const newPost = {
@@ -40,9 +40,9 @@ class PersonDetail extends React.Component {
   };
 
   //delete todo
-  delTodo = url => {
+  delTodo = (url) => {
     console.log(url);
-    this.setState({ posts: [...this.state.posts.filter(post => post.url !== url)] });
+    this.setState({ posts: [...this.state.posts.filter((post) => post.url !== url)] });
   };
 
   render() {
@@ -50,7 +50,7 @@ class PersonDetail extends React.Component {
       <div>
         <Row>
           <Col span={7}>
-            <CardProf />
+            <ProfileCard />
           </Col>
           <Col span={10} style={{ padding: '40px' }}>
             <AddPost onSubmit={this.handleSubmit} />
