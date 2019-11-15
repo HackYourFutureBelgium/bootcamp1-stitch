@@ -10,8 +10,8 @@ export default class Profile extends Component {
       <div>
         <Row>
           <Col span={7} hoverable style={{ border: '2px solid blue' }}>
-            <container id="prof_img">
-              <Avatar size={154} icon="user" alt="profimg" />
+            <container>
+              <Avatar size={154} icon='user' alt='profimg' />
               <p>
                 ipsum dolor sit amet consectetur adipisicing elit. Inventore similique obcaecati
                 aliquam quam illo fuga molestias doloribus ipsam, recusandae ullam magni cupiditate
@@ -19,10 +19,10 @@ export default class Profile extends Component {
               </p>
               <Card
                 actions={[
-                  <Icon type="facebook" key="setting" />,
-                  <Icon type="github" key="edit" />,
-                  <Icon type="radar-chart" key="edit" />,
-                  <Avatar src="https://picsum.photos/id/8/200/200" />
+                  <Icon type='facebook' key='setting' />,
+                  <Icon type='github' key='edit' />,
+                  <Icon type='radar-chart' key='edit' />,
+                  <Avatar src='https://picsum.photos/id/8/200/200' />
                 ]}
               ></Card>
               <Comments />

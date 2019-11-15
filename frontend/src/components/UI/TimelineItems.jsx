@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Timeline, Icon, Avatar, Card, Button } from 'antd';
-import '../../styles/style.css';
 import PropTypes from 'prop-types';
 
 const { Meta } = Card;
@@ -27,14 +26,16 @@ export class TimelineItems extends Component {
             />
             <h2>Skill: {this.props.detail.skill}</h2>
             <p>Desc: {this.props.detail.description}</p>
-            <p><a href='#!' target='_blanck'>
-              {this.props.detail.url}
-            </a></p>
+            <p>
+              <a href='#!' target='_blanck'>
+                {this.props.detail.url}
+              </a>
+            </p>
             <Button
               onClick={this.props.delTodo.bind(this, this.props.detail.url)}
               style={{ color: 'red' }}
             >
-              <Icon type='delete'/>
+              <Icon type='delete' />
             </Button>
           </Card>
         </Timeline.Item>

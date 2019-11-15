@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import '../../styles/style.css';
-import '../../styles/styleProfile.css';
 import { Timeline } from 'antd';
 import TimelineItems from './TimelineItems';
 import PropTypes from 'prop-types';
@@ -10,7 +8,7 @@ class Timeline1 extends Component {
     const { details } = this.props;
 
     // TODO remove reverse and order by context date instead reverse()
-    const $details = details.map(detail => (
+    const $details = details.reverse().map(detail => (
       <React.Fragment key={detail.url}>
         <TimelineItems detail={detail} delTodo={this.props.delTodo} />
       </React.Fragment>

@@ -1,8 +1,7 @@
 import React from 'react';
 import Timeline1 from '../components/UI/Timeline';
-import { Row, Col, Icon, Button } from 'antd';
+import { Row, Col } from 'antd';
 import AddPost from './UI/AddPost';
-import '../styles/styleProfile.css';
 import CardProf from './UI/CardProf';
 
 class PersonDetail extends React.Component {
