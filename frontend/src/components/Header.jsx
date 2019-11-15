@@ -83,10 +83,9 @@ class Header extends Component {
             </Button>
           </nav>
         )}
-
-        <Button className='app-header__button-login' icon='login' onClick={this.showModal}>
+        {navBarVisible && (<Button className='app-header__button-login' icon='login' onClick={this.showModal}>
           Log in
-        </Button>
+        </Button>)}
         <Modal
           title='Log in'
           visible={visible}
