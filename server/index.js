@@ -1,11 +1,36 @@
-const express = require ('express');
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+const { MONGODB_URL } = process.env;
+
+mongoose.Promise = global.Promise;
+mongoose
+  .connect(MONGODB_URL, { useFindAndModify: false, useNewUrlParser: true, useCreateIndex: false, useUnifiedTopology: true })
+  .then(() => { console.log('Database connection established'); })
+  .catch((err) => {
+    console.error(`Database error, exiting. Stack trace:\n${err}`);
+    process.exit();
+  });
+
+
 const app = express();
-const PORT = 4000;
+const port = 4000;
+
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.send("wuck findows");
-})
+  res.send("Hello World");
+});
 
-app.listen(PORT, () => {
-    console.log (`listening on port ${PORT}`);
+app.get('/api', (req, res) => {
+  res.json({ message: 'API ready' });
+});
+
+const apiServices = require("./services");
+app.use("/api", apiServices);
+
+app.listen(port, function () {
+  console.log('server running at ' + port);
 });

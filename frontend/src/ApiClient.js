@@ -1,4 +1,4 @@
-const baseUrl = 'https://randomuser.me/api/';
+const baseUrl = 'https://localhost/4000';
 const init = {
     headers:{
         'Content-Type': 'application/json'
@@ -7,14 +7,10 @@ const init = {
 };
 
 class ApiClient {
-     getUser =  async (data) => {
+     getUserCredentials =  async (data) => {
         console.log('history api')
-        const response= await fetch(`${baseUrl}`, {
-            method: 'GET',
-            headers: {"Accept": "application/json"},
-            mode: 'cors',
-        });
-        return response.json();    
+        const response= await fetch(`${baseUrl}/signup`);
+        console.log(response)   
     };
 }
  
