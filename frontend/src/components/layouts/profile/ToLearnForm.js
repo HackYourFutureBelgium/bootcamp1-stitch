@@ -18,6 +18,9 @@ handleOnClick=(e) => {
   
 
 }
+       handleOnEdit=()=>{
+            
+       }
      render(){
         
           return(
@@ -25,7 +28,7 @@ handleOnClick=(e) => {
             <input id="skill" type="text" name="skill" />
             <br/>
             <input type="submit" value="Submit"/> 
-            <button>Delete</button>
+            <button onClick={this.onEdit}>Edit</button>
 
             </form>
           

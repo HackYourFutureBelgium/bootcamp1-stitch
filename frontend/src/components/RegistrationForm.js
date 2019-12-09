@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Input, Select, Checkbox, Button, AutoComplete } from 'antd';
 import { withRouter } from 'react-router-dom';
 import { withContext } from '../Context';
+const baseUrl = ''
 
 const { Option } = Select;
 
@@ -17,9 +18,40 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-      }
-    });
+        const {email, password}= values;
+
+       // Post request to backend
+    fetch('/api/account/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        password
+      }),
+    }).then(res => res.json())
+      .then(json => {
+        console.log('json', json);
+        if (json.success) {
+          this.setState({
+            signUpError: json.message,
+            isLoading: false,
+            signUpEmail: '',
+            signUpPassword: '',
+          });
+        } else {
+          this.setState({
+            signUpError: json.message,
+            isLoading: false,
+          });
+        }
+      });
+  }
+
+    
     this.props.history.push('/bioform')
+    });
   };
 
   handleConfirmBlur = e => {

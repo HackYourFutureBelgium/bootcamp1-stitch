@@ -11,7 +11,7 @@ const imgStyle= {
 
 }
 
-const UserDetails =  ({person, handleOnSubmitTolearn}) => {
+const UserDetails =  ({person, handleOnSubmitTolearn, editing}) => {
    console.log(person)
    console.log(handleOnSubmitTolearn)
     return ( 
@@ -37,7 +37,7 @@ const UserDetails =  ({person, handleOnSubmitTolearn}) => {
       title= {<h5>{person.name.first} {person.name.first}</h5>}
      
     />      
-            <ToLearnList  toLearn= {person.toLearn}/>
+            <ToLearnList person={person} editing={editing} toLearn= {person.toLearn}/>
             <ToLearnForm handleOnSubmit={handleOnSubmitTolearn}/>
             <InvitationLinkGenerator/> 
   </Card>,

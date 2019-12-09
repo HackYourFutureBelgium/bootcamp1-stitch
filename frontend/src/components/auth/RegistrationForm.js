@@ -17,6 +17,7 @@ import {
   AutoComplete,
 } from 'antd';
 import { updateLocale } from 'moment';
+import ApiClient from '../../ApiClient'
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -79,6 +80,8 @@ const residences = [
 
           [this.state.user]:{email, password, confirm, residence}  
         });
+        ApiClient.getUserCredentials(values);
+        
         console.log(this.state)
       }
     });

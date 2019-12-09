@@ -1,9 +1,12 @@
-const user = require('./model');
+const User = require('./model');
+const bcrypt = require('bcrypt');
+
 
 const controller = {};
 
 controller.findAll = (req, res) => {
-  user.find()
+ console.log("all found")
+  User.find()
     .then((dbResponse) => { res.send(dbResponse) })
     .catch((err) => {
       res.status(500).send({
@@ -13,8 +16,6 @@ controller.findAll = (req, res) => {
 }
 
 controller.signUp = (req, res) => {
-  console.log("-- POST /user --");
-
   const newUser = {
     firstName: req.body.firstName,
     email: req.body.email,
@@ -23,22 +24,38 @@ controller.signUp = (req, res) => {
     img: req.body.img,
     status: req.body.status
   };
-  user.create(newUser)
-    .then((dbResponse) => { res.send(dbResponse) })
+
+  User.findOne({
+    email: req.body.email
+  })
+  .then(user => {
+    if(!user) {
+      bcrypt.hash(req.body.password, 10, (err, hash) =>{
+        newUser.password = hash
+        User.create(newUser)
+        .then((dbResponse) => { res.send(dbResponse) })
     .catch((err) => {
       res.status(500).send({
         message: err.message
       });
+      })
+  })
+    }else{
+      res.json({error: 'User already exists'})
+    }
+  })
+    .catch(err => {
+      res.send('error: ' + err)
     });
 }
 
 controller.update = (req, res) => {
   console.log("-- POST /Update --");
 
-  const userId = req.params.id;
-  //const userId = req.params.id;
-  console.log("post user id = " + userId + "value");
-  const idObject = { _id: userId };
+  const UserId = req.params.id;
+  //const UserId = req.params.id;
+  console.log("post User id = " + UserId + "value");
+  const idObject = { _id: UserId };
 
   const updatedUser = {
     firstName: req.body.firstName,
@@ -47,7 +64,7 @@ controller.update = (req, res) => {
     img: req.body.img,
     status: req.body.status
   };
-  user.findOneAndUpdate(idObject, updatedUser, {
+  User.findOneAndUpdate(idObject, updatedUser, {
     new: true
   })
     .then((dbResponse) => { res.send(dbResponse) })
@@ -59,10 +76,10 @@ controller.update = (req, res) => {
 }
 
 controller.postIdDelete = (req, res) => {
-  const userId = req.params.id;
-  console.log("-- DELETE /" + userId + "/delete --");
-  const idObject = { _id: userId };
-  user.deleteOne(idObject)
+  const UserId = req.params.id;
+  console.log("-- DELETE /" + UserId + "/delete --");
+  const idObject = { _id: UserId };
+  User.deleteOne(idObject)
     .then((dbResponse) => { res.send(dbResponse) })
     .catch((err) => {
       res.status(500).send({

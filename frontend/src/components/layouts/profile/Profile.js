@@ -38,16 +38,21 @@ export default class Profile extends Component{
                     medium:"https://randomuser.me/api/portraits/med/men/57.jpg",
                     thumbnail:"https://randomuser.me/api/portraits/thumb/men/57.jpg"
                  },
-            } 
+            }, 
+            editing: false,
 
             } 
         }
     
-         handleOnSubmitTolearn =(skill)=>{
+         handleOnSubmitTolearn =(skill) => {
             if (skill)
             this.setState({
                 toLearn: this.state.person.toLearn.push(skill)
             })
+         }
+
+         handleOnEdit = (skills) => {
+          console.log('edited')
          }
     render(){
        
@@ -58,7 +63,7 @@ export default class Profile extends Component{
       
       <Col span={12}>  
         <Card style={{width:400}}>
-            <UserDetails handleOnSubmitTolearn={this.handleOnSubmitTolearn} person= {this.state.person}/>
+            <UserDetails handleOnEdit={this.handleOnEdit} editing={this.state.editing} handleOnSubmitTolearn={this.handleOnSubmitTolearn} person= {this.state.person}/>
             
         </Card>
       </Col>
@@ -72,3 +77,4 @@ export default class Profile extends Component{
     }
     
 };
+ 

@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-# bootcamp-project-stich-V1
-In this project: we are using YARN.
-
-
-Wireframe file is on Figma, and [here is the link](https://www.figma.com/file/C4lRRzKwJTmQMYWPe86iNP/Stich?node-id=49%3A107)
-=======
 <div>
 
 <img src="https://2019.summerofcode.be/static/img/partners-svg/hackyourfuture.svg" height="200px"/>
@@ -19,4 +12,3 @@ Build by Hack Your Future Belgium students <a href="https://github.com/AlfiYusri
 
 
 Wireframe file is on Figma, and [here is the link](https://www.figma.com/file/C4lRRzKwJTmQMYWPe86iNP/Stich?node-id=49%3A107)
->>>>>>> origin/additional-changes
