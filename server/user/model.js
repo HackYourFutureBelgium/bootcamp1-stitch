@@ -1,46 +1,82 @@
 const mongoose = require('mongoose');
- 
-const bcrypt = require ('bcrypt');
 
-const userSchema = mongoose.Schema(
+const User = new mongoose.Schema(
   {
     firstName: {
       type: String,
       required: true
     },
-    email: {
+    lastName: {
       type: String,
-      required: true,
-      unique: true,
+      required: true
+    },
+    bio: {
+      type: String
+    },
+    tagline: {
+      type: String
+    },
+    location: {
+      type: String
+    },
+    twitter: {
+      type: String
+    },
+    github: {
+      type: String
+    },
+    interests: [
+      {
+        type: mongoose.ObjectId,
+        ref: 'Interest',
+        default: []
+      }
+    ],
+    picture: {
+      type: String
     },
     password: {
       type: String,
       select: false
     },
-
-    img: {
+    passwordResetToken: {
       type: String,
+      select: false
     },
-    about: {
+    accountConfirmationToken: {
       type: String,
+      select: false
     },
-    status: {
+    email: {
+      required: true,
       type: String,
+      unique: true
     },
-    isDeleted:{
+    pending: {
       type: Boolean,
-      default: false
-    }
+      default: true
+    },
+    role: {
+      type: String,
+      default: 'user'
+    },
+    profileFtue: {
+      type: Boolean,
+      default: true
+    },
+    
   },
-
+  {
+    timestamps: true
+  }
 );
 
-userSchema.methods.generateHash = (password) => {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
-}
+User.index({
+  firstName: 'text',
+  lastName: 'text',
+  tagline: 'text',
+  bio: 'text',
+  location: 'text'
+});
 
-userSchema.methods.validatePassword = (password) => {
-  return bcrypt.compareSync(password, this.password)
-}
-
-module.exports = mongoose.model('user', userSchema);
+module.exports = mongoose.model('User', User);

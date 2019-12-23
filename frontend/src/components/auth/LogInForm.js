@@ -1,12 +1,29 @@
 import React, {Component} from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import ApiClient from '../../ApiClient';
 
 class LogInForm extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      email:'',
+      password:'',
+      errors:{}
+    }
+  }
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        ApiClient.logIn(values)
+        .then(res =>  {
+          if (res) {
+            this.props.history.push('/Profile');
+          }
+        })
+       
+
       }
     });
   };

@@ -1,12 +1,17 @@
+const {requireAuth} = require('../lib/auth');
 const express = require("express")
-const router = express.Router()
+const router = express.Router();
+
 
 const controller = require("./controller")
 
 
 router.get("/", controller.findAll);
-router.post("/signup", controller.signUp);
-router.post("/update/:id", controller.update);///need to work 
-router.delete("/:id", controller.postIdDelete);
+router.post("/login", controller.login);
+router.post("/signup", 
+ requireAuth, controller.create
+
+);
+ 
 
 module.exports = router;

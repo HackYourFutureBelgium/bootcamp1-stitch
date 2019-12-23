@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input } from 'antd';
 import { withContext } from '../Context';
-import API from '../API.js';
+import ApiClient from '../ApiClient';
 
 class NormalLoginForm extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class NormalLoginForm extends Component {
     });
 
     const { email, password } = this.state;
-    API.login(email, password).then(user => {
+    ApiClient.login(email, password).then(user => {
       const { setAuthenticatedUser } = this.props;
       setAuthenticatedUser(user);
     });
