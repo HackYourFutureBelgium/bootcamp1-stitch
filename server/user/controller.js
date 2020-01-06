@@ -6,7 +6,6 @@ const cookieIsSecure = process.env.ENVIRONMENT === 'production';
 
 exports.findAll = async (req, res) => {
   User.find()
-    .populate('interests')
     .then(users => {
       res.send(users);
     })
@@ -20,7 +19,6 @@ exports.findAll = async (req, res) => {
 exports.findOne = (req, res) => {
   const { id } = req.params;
   User.findById(id)
-    .populate('interests')
     .then(user => {
       res.send(user);
     })
@@ -30,32 +28,29 @@ exports.findOne = (req, res) => {
 };
 
 exports.create = async (req, res) => {
-  console.log('creating')
-  const password = await hash(req.body.password);
-  const rawUser = {
-    ...req.body,
-    password,
-    // location: req.body.location ? req.body.location.toLowerCase() : null
-  };
-  User.create(rawUser)
-    .then(async user => {
-      user.accountConfirmationToken = await createToken(user, '1 hour');
-      return user.save();
-    })
-    .then(async user => {
-      const newUser = user.toObject();
-      delete newUser.password;
-      delete newUser.accountConfirmationToken;
-      res.send(newUser);
-    })
-    .catch(err => {
-      if (err.code === 11000) {
-        res.status(400).send({ message: 'A user with this email address has already registered.' });
-        return;
-      }
-      res.status(500).send({ message: 'An unexpected error occurred' });
-    });
+  try {
+    const password = await hash(req.body.password);
+    const rawUser = {
+      ...req.body,
+      password
+    };
+
+    const user = await User.create(rawUser)
+    user.accountConfirmationToken = await createToken(user, '1 hour');
+
+    const newUser = user.toObject();
+    res.send(newUser);
+  } catch (err) {
+    console.log("ERROR: ", err);
+    if (err.code === 11000) {
+      return res.status(400).send({
+        message: "A user with this email address has already registered."
+      });
+    }
+    res.status(500).send({ message: "An unexpected error occurred" });
+  }
 };
+
 
 exports.authenticate = (req, res) => res.status(200).send(req.user);
 exports.logout = (req, res) =>
@@ -66,12 +61,13 @@ exports.logout = (req, res) =>
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
+  console.log(password)
   try {
+    console.log('logging in')
     const rawUser = await User.findOne({ email })
-      .populate('interests')
-      .select('+password')
-      .select('+firstLogin');
+    .select('+password')
     if (!rawUser) throw new Error('Incorrect username or password');
+   
 
     const passwordIsCorrect = await compareHash(password, rawUser.password);
     if (!passwordIsCorrect) throw new Error('Incorrect username or password');
@@ -94,8 +90,6 @@ const requestPasswordReset = async (req, res) => {
   const { email } = req.body;
   const user = await User.findOne({ email });
 
-  // "accept" the password reset request even if the email isn't tied to a registered user account
-  // https://ux.stackexchange.com/questions/87079/reset-password-appropriate-response-if-email-doesnt-exist
   if (!user) return res.status(202).send();
 
   const token = await createToken(user, '1 hour');

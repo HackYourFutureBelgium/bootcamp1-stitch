@@ -10,28 +10,7 @@ const User = new mongoose.Schema(
       type: String,
       required: true
     },
-    bio: {
-      type: String
-    },
-    tagline: {
-      type: String
-    },
-    location: {
-      type: String
-    },
-    twitter: {
-      type: String
-    },
-    github: {
-      type: String
-    },
-    interests: [
-      {
-        type: mongoose.ObjectId,
-        ref: 'Interest',
-        default: []
-      }
-    ],
+    
     picture: {
       type: String
     },
@@ -51,20 +30,7 @@ const User = new mongoose.Schema(
       required: true,
       type: String,
       unique: true
-    },
-    pending: {
-      type: Boolean,
-      default: true
-    },
-    role: {
-      type: String,
-      default: 'user'
-    },
-    profileFtue: {
-      type: Boolean,
-      default: true
-    },
-    
+    }
   },
   {
     timestamps: true
@@ -73,10 +39,8 @@ const User = new mongoose.Schema(
 
 User.index({
   firstName: 'text',
-  lastName: 'text',
-  tagline: 'text',
-  bio: 'text',
-  location: 'text'
+  lastName: 'text', 
+  password: 'text'
 });
 
 module.exports = mongoose.model('User', User);

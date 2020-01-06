@@ -7,6 +7,7 @@ import Main from '../components/Main';
 import Connection from '../components/Connection';
 import Notification from '../components/Notification';
 import BioForm from '../components/BioForm';
+import LogInForm from '../components/auth/LogInForm';
 
 
 export default class MyRoutes extends React.Component {
@@ -26,6 +27,7 @@ export default class MyRoutes extends React.Component {
         <Route exact path="/notification" component={Notification} />
         <Route exact path="/bioform" component={BioForm} />
         <Route path="*" component={NotFound} />
+        <Route path="/login" component={LogInForm} />
       </Switch>
     );
   }

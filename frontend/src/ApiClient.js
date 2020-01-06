@@ -6,9 +6,7 @@ const baseUrl = 'https://localhost/4000';
 
 class ApiClient {
      getUserCredentials = (data)=>{
-         console.log(data);
          axios.post(`${baseUrl}/api/user/signup`, {
-         method: 'POST',
          body: JSON.stringify({
                       data
          })
@@ -16,6 +14,7 @@ class ApiClient {
      }
      
      logIn = (data) => {
+         console.log('logging in')
          axios.post(`${baseUrl}/api/user/login`, {
             method: 'POST',
             body: JSON.stringify({

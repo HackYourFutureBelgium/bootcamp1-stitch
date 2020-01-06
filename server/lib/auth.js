@@ -13,6 +13,7 @@ const authOptions = {
 };
 
 const jwtAuth = new JwtStrategy(authOptions, (payload, done) => {
+  console.log('payload received', jwt_payload);
   User.findById(payload.sub)
     // .populate('interests')
     .then(user => done(null, user))

@@ -8,10 +8,7 @@ const controller = require("./controller")
 
 router.get("/", controller.findAll);
 router.post("/login", controller.login);
-router.post("/signup", 
- requireAuth, controller.create
-
-);
+router.post("/signup", controller.create);
  
 
 module.exports = router;

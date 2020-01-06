@@ -4,10 +4,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const { MONGODB_URL } = process.env;
+const {MONGODB_LOCAL} = process.env;
+
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(MONGODB_URL, { useFindAndModify: false, useNewUrlParser: true, useCreateIndex: false, useUnifiedTopology: true })
+  .connect( MONGODB_LOCAL , { useFindAndModify: false, useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
   .then(() => { console.log('Database connection established'); })
   .catch((err) => {
     console.error(`Database error, exiting. Stack trace:\n${err}`);

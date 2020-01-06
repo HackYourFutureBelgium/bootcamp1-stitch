@@ -83,6 +83,7 @@ const residences = [
         ApiClient.getUserCredentials(values);
         
         console.log(this.state)
+        this.props.history.push('/login')
       }
     });
   };
