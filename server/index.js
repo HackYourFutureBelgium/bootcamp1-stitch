@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 const { MONGODB_URL } = process.env;
 const {MONGODB_LOCAL} = process.env;
@@ -9,7 +10,7 @@ const {MONGODB_LOCAL} = process.env;
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect( MONGODB_LOCAL , { useFindAndModify: false, useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+  .connect( MONGODB_URL , { useFindAndModify: false, useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
   .then(() => { console.log('Database connection established'); })
   .catch((err) => {
     console.error(`Database error, exiting. Stack trace:\n${err}`);
@@ -20,7 +21,12 @@ mongoose
 const app = express();
 const port = 4000;
 
-app.use(bodyParser.json());
+
+ app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+
+
+
 
 app.get('/', (req, res) => {
   res.send("Hello World");

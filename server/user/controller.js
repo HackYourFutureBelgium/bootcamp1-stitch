@@ -52,7 +52,11 @@ exports.create = async (req, res) => {
 };
 
 
-exports.authenticate = (req, res) => res.status(200).send(req.user);
+exports.authenticate = (req, res) => 
+{
+  res.status(200).send(req.user)
+console.log(req)
+};
 exports.logout = (req, res) =>
   res
     .status(204)
